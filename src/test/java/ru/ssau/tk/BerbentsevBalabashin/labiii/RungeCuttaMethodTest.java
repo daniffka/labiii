@@ -1,6 +1,7 @@
+package ru.ssau.tk.BerbentsevBalabashin.labiii;
+
 import org.junit.jupiter.api.Test;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.MathFunction;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.RungeCuttaMethod;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RungeCuttaMethodTest {

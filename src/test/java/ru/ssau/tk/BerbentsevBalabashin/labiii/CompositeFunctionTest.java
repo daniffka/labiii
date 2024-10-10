@@ -1,9 +1,8 @@
+package ru.ssau.tk.BerbentsevBalabashin.labiii;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.IdentityFunction;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.MathFunction;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.SqrFunction;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.CompositeFunction;
+
 class CompositeFunctionTest {
     @Test
     void testApply(){

@@ -85,7 +85,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     }
 
     @Override
-    protected int floorIndexOfX(double x) {
+     protected int floorIndexOfX(double x) {
         if (x < xValues[0]) {
             return 0;
         }

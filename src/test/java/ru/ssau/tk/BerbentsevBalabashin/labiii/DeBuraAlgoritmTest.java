@@ -1,4 +1,5 @@
-import ru.ssau.tk.BerbentsevBalabashin.labiii.DeBuraAlgoritm;
+package ru.ssau.tk.BerbentsevBalabashin.labiii;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
