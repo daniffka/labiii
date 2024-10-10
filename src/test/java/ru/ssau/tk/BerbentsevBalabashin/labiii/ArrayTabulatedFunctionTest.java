@@ -126,4 +126,13 @@ class ArrayTabulatedFunctionTest {
 
         assertEquals(3,arrayTabulatedFunction.getX(arrayTabulatedFunction.xValues.length-1));
     }
+    @Test
+    void Insert_Test(){
+        double[] xVal = {1.,2.,3.};
+        double[] yVal = {2.,7.,9.};
+        ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
+        arrayTabulatedFunction.insert(1.5,4.);
+
+        assertEquals(1.0,arrayTabulatedFunction.getX(0));
+    }
 }
