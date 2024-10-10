@@ -3,7 +3,7 @@ import ru.ssau.tk.BerbentsevBalabashin.labiii.Insertable;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.Removable;
 import java.util.Arrays;
 
-public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Insertable{
+public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Insertable,Removable{
 
     protected double[] xValues;
     protected double[] yValues;
@@ -153,5 +153,16 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
         }
     }
 
+    public void remove(int index) {
+        double[] newXValues = new double[xValues.length - 1];
+        double[] newYValues = new double[yValues.length - 1];
+        System.arraycopy(xValues, 0, newXValues, 0, index);
+        System.arraycopy(yValues, 0, newYValues, 0, index);
+        System.arraycopy(xValues, index + 1, newXValues, index, xValues.length - index - 1);
+        System.arraycopy(yValues, index + 1, newYValues, index, yValues.length - index - 1);
+        xValues = newXValues;
+        yValues = newYValues;
+        count--;
+    }
 
 }

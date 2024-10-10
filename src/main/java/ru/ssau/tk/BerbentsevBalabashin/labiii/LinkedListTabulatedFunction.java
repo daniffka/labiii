@@ -1,7 +1,7 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.Insertable;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.Removable;
-public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable{
+public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable,Insertable{
     private int count;
     private Node head;
 
@@ -181,4 +181,59 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
         }
         count--;
     }
+
+    @Override
+    public void insert(double x, double y) {
+        if (head == null) addNode(x,y);
+        Node tmp = head;
+
+        do{
+
+            if(tmp.x == x) tmp.y = y;
+            if (tmp.next.x > x && tmp.x <x) {
+                Node node = new Node(x,y);
+                Node next = tmp.next;
+
+                tmp.next = node;
+                node.prev = tmp;
+                node.next = next;
+                next.prev = node;
+
+
+                count++;
+                return;
+            }
+            tmp = tmp.next;
+        } while (tmp.next!=head);
+
+        if (x<head.x){
+            Node node = new Node(x,y);
+
+            Node tail = head.prev;
+
+            tail.next = node;
+            node.next = head;
+            node.prev = tail;
+            head.prev = node;
+            head = node;
+
+            count++;
+            return;
+
+        }
+        if(tmp.next.x<x&&tmp.x<x){
+            Node node = new Node(x,y);
+            Node tail = head.prev;
+
+            tail.next = node;
+            node.next = head;
+            node.prev = tail;
+            head.prev = node;
+
+            count++;
+            return;
+        }
+    }
+
+
 }
