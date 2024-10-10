@@ -14,6 +14,7 @@ class CompositeFunctionTest {
         CompositeFunction doubleCompositeFunction = new CompositeFunction(compositeFunction1, Func2);
         Assertions.assertEquals(4096, doubleCompositeFunction.apply(8));
         Assertions.assertEquals(16, compositeFunction2.apply(2));
+        Assertions.assertEquals(256, doubleCompositeFunction.apply(4));
 
     }
 }
