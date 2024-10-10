@@ -1,6 +1,7 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii;
-
-public class LinkedListTabulatedFunction extends AbstractTabulatedFunction{
+import ru.ssau.tk.BerbentsevBalabashin.labiii.Insertable;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.Removable;
+public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable{
     private int count;
     private Node head;
 
@@ -159,5 +160,25 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction{
         Node left = head.prev.prev;
         Node right = head.prev;
         return interpolate(x, left.x, right.x, left.y, right.y);
+    }
+    @Override
+    public void remove(int index) {
+        if (count == 0) {
+            return;
+        }
+        Node toRemove = getNode(index);
+
+        if (count == 1) {
+            head = null;
+        } else {
+            if (toRemove == head) {
+                head = head.next;
+            }
+            Node prev = toRemove.prev;
+            Node next = toRemove.next;
+            prev.next = next;
+            next.prev = prev;
+        }
+        count--;
     }
 }
