@@ -179,6 +179,7 @@ public class LinkedListTabulatedFunctionTest {
         double[] yValues = {1, 4, 9, 16, 25};
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
 
+
         function.insert(6, 36);
         assertEquals(6, function.getX(function.getCount() - 1), 1e-6);
         assertEquals(36, function.getY(function.getCount() - 1), 1e-6);
