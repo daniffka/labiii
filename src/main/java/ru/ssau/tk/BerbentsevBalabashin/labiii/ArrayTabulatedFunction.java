@@ -1,8 +1,9 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii;
-
+import ru.ssau.tk.BerbentsevBalabashin.labiii.Insertable;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.Removable;
 import java.util.Arrays;
 
-public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
+public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Removable, Insertable{
 
     protected double[] xValues;
     protected double[] yValues;
@@ -120,4 +121,55 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         return interpolate(x, xValues[floorIndex], xValues[floorIndex + 1], yValues[floorIndex], yValues[floorIndex + 1]);
     }
 
+    @Override
+    public void insert(double x, double y) {
+        if (indexOfX(x) != -1) {
+            setY(indexOfX(x), y);
+        } else {
+            double[] newXValues = new double[count + 1];
+            double[] newYValues = new double[count + 1];
+
+            if (x < leftBound()) {
+                newXValues[0] = x;
+                newYValues[0] = y;
+
+                System.arraycopy(xValues, 0, newXValues, 1, count);
+                System.arraycopy(yValues, 0, newYValues, 1, count);
+            } else {
+                int index = floorIndexOfX(x);
+                System.arraycopy(xValues, 0, newXValues, 0, index + 1);
+                System.arraycopy(yValues, 0, newYValues, 0, index + 1);
+
+                newXValues[index + 1] = x;
+                newYValues[index + 1] = y;
+
+                System.arraycopy(xValues, index + 1, newXValues, index + 2, count - index - 1);
+                System.arraycopy(yValues, index + 1, newYValues, index + 2, count - index - 1);
+            }
+            count++;
+            xValues = newXValues;
+            yValues = newYValues;
+
+        }
+    }
+
+    @Override
+    public void remove(int index) {
+        if (index < 0 || index >= count) {
+            return;
+        }
+
+        double[] newXValues = new double[count - 1];
+        double[] newYValues = new double[count - 1];
+
+        System.arraycopy(xValues, 0, newXValues, 0, index);
+        System.arraycopy(yValues, 0, newYValues, 0, index);
+
+        System.arraycopy(xValues, index + 1, newXValues, index, count - index - 1);
+        System.arraycopy(yValues, index + 1, newYValues, index, count - index - 1);
+        count--;
+        xValues = newXValues;
+        yValues = newYValues;
+
+    }
 }
