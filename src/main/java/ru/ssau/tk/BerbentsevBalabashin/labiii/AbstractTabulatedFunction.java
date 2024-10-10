@@ -1,7 +1,6 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii;
 
 public abstract class AbstractTabulatedFunction implements TabulatedFunction {
-    protected int count;
     protected abstract int floorIndexOfX(double x);
     protected abstract double extrapolateLeft(double x);
     protected abstract double extrapolateRight(double x);
