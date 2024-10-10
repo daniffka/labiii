@@ -3,7 +3,7 @@ import java.util.Arrays;
 // Вычисление сплайна S(x) по алгоритму де Бура.
 public class DeBuraAlgoritm implements MathFunction {
     private double[] nodeArray; // Массив узлов
-    private double[] controlPoints; // Массив контрольных точек
+    private double[] controlPoints;  // Массив контрольных точек
     private int splineDegree; // Степень сплайна
 
     public DeBuraAlgoritm(double[] nodeArray, double[] controlPoints, int splineDegree) {
