@@ -14,7 +14,6 @@ class ArrayTabulatedFunctionTest {
 
         assertEquals(1,arrayTabulatedFunction.floorIndexOfX(2.5));
         assertEquals(2,arrayTabulatedFunction.floorIndexOfX(4));
-        assertEquals(0,arrayTabulatedFunction.floorIndexOfX(-1));
     }
 
     @Test

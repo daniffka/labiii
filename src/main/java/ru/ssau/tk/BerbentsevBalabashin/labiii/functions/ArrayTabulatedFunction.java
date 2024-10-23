@@ -8,12 +8,16 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     protected int count;
 
     public ArrayTabulatedFunction(double[] xValues,double[] yValues){
+        if (xValues.length < 2)
+            throw new IllegalArgumentException("list must contain at least two elements");
         this.xValues= Arrays.copyOf(xValues,xValues.length);
         this.yValues= Arrays.copyOf(yValues,yValues.length);
         this.count=xValues.length;
     }
 
     public ArrayTabulatedFunction(MathFunction source, double xFrom, double xTo, int count){
+        if (count < 2)
+            throw new IllegalArgumentException("array must contain at least two elements");
         this.count=count;
         this.xValues=new double[count];
         this.yValues=new double[count];
@@ -85,7 +89,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     @Override
      protected int floorIndexOfX(double x) {
         if (x < xValues[0]) {
-            return 0;
+            throw new IllegalArgumentException("x is less than left bound");
         }
         for (int i = 1; i < count; i++) {
             if (x < xValues[i]) {
