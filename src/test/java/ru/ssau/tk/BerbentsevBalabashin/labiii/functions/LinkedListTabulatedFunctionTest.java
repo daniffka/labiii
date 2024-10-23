@@ -76,7 +76,7 @@ public class LinkedListTabulatedFunctionTest {
         double[] xValues = {2, 4, 6, 11, 12};
         double[] yValues = {13, 15, 17, 18, 25};
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
-        assertEquals(0, function.floorIndexOfX(0.8));
+        assertEquals(1, function.floorIndexOfX(5));
     }
     @Test
     public void testInterpolate() {
