@@ -1,12 +1,7 @@
-package ru.ssau.tk.BerbentsevBalabashin.labiii;
+package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 
 import org.junit.jupiter.api.Test;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.AbstractTabulatedFunction;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.ArrayTabulatedFunction;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.Insertable;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.LinkedListTabulatedFunction;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.MathFunction;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.SqrFunction;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LinkedListTabulatedFunctionTest {

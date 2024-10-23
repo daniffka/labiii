@@ -1,4 +1,4 @@
-package ru.ssau.tk.BerbentsevBalabashin.labiii;
+package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

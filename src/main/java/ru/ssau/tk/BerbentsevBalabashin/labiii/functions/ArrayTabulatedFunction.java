@@ -1,6 +1,4 @@
-package ru.ssau.tk.BerbentsevBalabashin.labiii;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.Insertable;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.Removable;
+package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 import java.util.Arrays;
 
 public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Insertable,Removable{

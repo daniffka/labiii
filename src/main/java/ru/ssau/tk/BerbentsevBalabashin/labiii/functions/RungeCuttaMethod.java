@@ -1,4 +1,4 @@
-package ru.ssau.tk.BerbentsevBalabashin.labiii;
+package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 
 public class RungeCuttaMethod {
     private final MathFunction function;

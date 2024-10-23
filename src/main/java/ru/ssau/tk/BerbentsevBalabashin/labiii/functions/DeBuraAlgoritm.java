@@ -1,4 +1,4 @@
-package ru.ssau.tk.BerbentsevBalabashin.labiii;
+package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 import java.util.Arrays;
 // Вычисление сплайна S(x) по алгоритму де Бура.
 public class DeBuraAlgoritm implements MathFunction {

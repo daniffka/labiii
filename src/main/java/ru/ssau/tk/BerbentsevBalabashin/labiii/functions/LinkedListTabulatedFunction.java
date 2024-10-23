@@ -1,6 +1,4 @@
-package ru.ssau.tk.BerbentsevBalabashin.labiii;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.Insertable;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.Removable;
+package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable,Insertable{
     private int count;
     private Node head;

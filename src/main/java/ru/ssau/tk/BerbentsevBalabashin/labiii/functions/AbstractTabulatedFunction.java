@@ -1,4 +1,4 @@
-package ru.ssau.tk.BerbentsevBalabashin.labiii;
+package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 
 public abstract class AbstractTabulatedFunction implements TabulatedFunction {
     protected abstract int floorIndexOfX(double x);
