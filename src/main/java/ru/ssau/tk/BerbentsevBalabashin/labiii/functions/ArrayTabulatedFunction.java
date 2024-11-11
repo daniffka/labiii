@@ -1,4 +1,7 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 import java.util.Arrays;
 
 public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Insertable,Removable{

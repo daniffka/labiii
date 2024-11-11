@@ -1,4 +1,5 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
+
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable,Insertable{
     private int count;
     private Node head;
