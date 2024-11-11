@@ -1,4 +1,7 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
+
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
+
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable,Insertable{
     private int count;
     private Node head;
@@ -34,6 +37,8 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
     }
 
     public LinkedListTabulatedFunction(double[] xValues, double[] yValues) {
+        AbstractTabulatedFunction.checkLengthIsTheSame(xValues, yValues);
+        AbstractTabulatedFunction.checkSorted(xValues);
         if (xValues.length < 2)
             throw new IllegalArgumentException("list must contain at least two elements");
         for (int i = 0; i < xValues.length; i++) {
@@ -140,12 +145,15 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     @Override
     protected double interpolate(double x, int floorIndex) {
-        if (count == 1) {
-            return head.y;
+        if (floorIndex == count-1) {
+            return head.prev.y;
         }
 
         Node left = getNode(floorIndex);
         Node right = left.next;
+        if (x<left.x || x>right.x){
+            throw new InterpolationException("x is out of interpolation range");
+        }
         return interpolate(x, left.x, right.x, left.y, right.y);
     }
 
