@@ -1,6 +1,5 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
 
 import java.util.Arrays;
 
@@ -11,6 +10,8 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     protected int count;
 
     public ArrayTabulatedFunction(double[] xValues,double[] yValues){
+        AbstractTabulatedFunction.checkLengthIsTheSame(xValues,yValues);
+        AbstractTabulatedFunction.checkSorted(xValues);
         if (xValues.length < 2)
             throw new IllegalArgumentException("list must contain at least two elements");
         this.xValues= Arrays.copyOf(xValues,xValues.length);
@@ -120,8 +121,8 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
 
     @Override
     protected double interpolate(double x, int floorIndex) {
-        if (count == 1) {
-            return yValues[0];
+        if (x>xValues[floorIndex+1] || x<xValues[floorIndex]){
+            throw new InterpolationException("x is out of interpolation range");
         }
         return interpolate(x, xValues[floorIndex], xValues[floorIndex + 1], yValues[floorIndex], yValues[floorIndex + 1]);
     }
