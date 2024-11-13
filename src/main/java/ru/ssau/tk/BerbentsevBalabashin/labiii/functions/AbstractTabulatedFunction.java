@@ -19,13 +19,12 @@ public abstract class AbstractTabulatedFunction implements TabulatedFunction {
         }
     }
     public static void checkSorted(double[] xValues){
-        for (int i=1; i<xValues.length;i++){
-            if (xValues[i]>xValues[i-1]){
-                    throw new ArrayIsNotSortedException("the array must be sorted in ascending order");
-            }
+        for (int i = 0; i<xValues.length-1;i++){
+            if (xValues[i]>xValues[i+1]) throw new ArrayIsNotSortedException("the array must be sorted in ascending order");
         }
     }
 
+    @Override
     public double apply(double x) {
         if (x < leftBound()) {
             return extrapolateLeft(x);

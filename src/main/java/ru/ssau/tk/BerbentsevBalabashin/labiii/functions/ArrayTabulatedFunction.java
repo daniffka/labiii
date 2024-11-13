@@ -12,6 +12,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     public ArrayTabulatedFunction(double[] xValues,double[] yValues){
         AbstractTabulatedFunction.checkLengthIsTheSame(xValues,yValues);
         AbstractTabulatedFunction.checkSorted(xValues);
+
         if (xValues.length < 2)
             throw new IllegalArgumentException("list must contain at least two elements");
         this.xValues= Arrays.copyOf(xValues,xValues.length);
@@ -60,7 +61,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
 
     @Override
     public double getY(int index) {
-        return xValues[index];
+        return yValues[index];
     }
 
     @Override

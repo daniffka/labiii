@@ -1,15 +1,17 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 
 import org.junit.jupiter.api.Test;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayTabulatedFunctionTest {
 
     @Test
     void floorIndexOfX() {
         double[] xVal = {1.,2.,3.};
-        double[] yVal = {3.,4.,5.};
+        double[] yVal = {4.,5.,6.};
         ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
 
         assertEquals(1,arrayTabulatedFunction.floorIndexOfX(2.5));
@@ -22,7 +24,7 @@ class ArrayTabulatedFunctionTest {
         double[] yVal = {3.,4.,5.};
         ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
 
-        assertEquals(0,arrayTabulatedFunction.extrapolateRight(-2));
+        assertEquals(7,arrayTabulatedFunction.extrapolateRight(5));
     }
 
     @Test
@@ -68,7 +70,7 @@ class ArrayTabulatedFunctionTest {
         double[] yVal = {3.,4.,5.};
         ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
 
-        assertEquals(2,arrayTabulatedFunction.getY(1));
+        assertEquals(4,arrayTabulatedFunction.getY(1));
     }
 
     @Test
@@ -134,4 +136,25 @@ class ArrayTabulatedFunctionTest {
 
         assertEquals(1.0,arrayTabulatedFunction.getX(0));
     }
+
+    @Test
+    void TestDefConstructorSortedArr(){
+        ArrayIsNotSortedException arrayIsNotSortedException= new ArrayIsNotSortedException();
+        assertNull(arrayIsNotSortedException.getMessage());
+    }
+
+    @Test
+    void TestDefConstructorDifferentLength() {
+        DifferentLengthOfArraysException differentLengthOfArraysException= new DifferentLengthOfArraysException();
+        assertNull(differentLengthOfArraysException.getMessage());
+    }
+
+    @Test
+    void TestMessageConstructorDifferentLength() {
+        String message = "Arrays length isn't the same";
+        DifferentLengthOfArraysException differentLengthOfArraysException = new DifferentLengthOfArraysException(message);
+        assertEquals(message,differentLengthOfArraysException.getMessage());
+    }
+
+
 }
