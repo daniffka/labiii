@@ -194,7 +194,4 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
             }
         };
     }
-
-
-
 }
