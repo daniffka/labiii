@@ -1,8 +1,10 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
-
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
 import java.util.Arrays;
-
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Insertable,Removable{
 
     protected double[] xValues;
@@ -171,5 +173,28 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
         yValues = newYValues;
         count--;
     }
+    @Override
+    public Iterator<Point> iterator() {
+        return new Iterator<Point>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < count;
+            }
+
+            @Override
+            public Point next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                Point point = new Point(xValues[index], yValues[index]);
+                index++;
+                return point;
+            }
+        };
+    }
+
+
 
 }

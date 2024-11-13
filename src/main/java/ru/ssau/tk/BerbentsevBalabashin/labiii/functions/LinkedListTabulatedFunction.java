@@ -1,5 +1,8 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
-
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
 
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable,Insertable{
@@ -249,6 +252,27 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
             return;
         }
     }
+    @Override
+    public Iterator<Point> iterator() {
+        return new Iterator<Point>() {
+            private Node node = head;
 
+            @Override
+            public Point next() {
+                if (!hasNext())
+                    throw new NoSuchElementException();
+                Point p = new Point(node.x, node.y);
+                node = node.next;
+                if (node == head)
+                    node = null;
+                return p;
+            }
+
+            @Override
+            public boolean hasNext() {
+                return node != null;
+            }
+        };
+    }
 
 }
