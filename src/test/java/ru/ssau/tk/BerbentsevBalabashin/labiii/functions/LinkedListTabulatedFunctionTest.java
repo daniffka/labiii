@@ -54,12 +54,12 @@ public class LinkedListTabulatedFunctionTest {
 
     @Test
     public void testIndexOfX() {
-        double[] xValues = {4, 8, 23, 14, 24};
-        double[] yValues = {1, 4, 92, 18, 25};
+        double[] xValues = {1, 2, 3, 4, 5};
+        double[] yValues = {1, 4, 9, 16, 25};
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
 
-        assertEquals(0, function.indexOfX(4));
-        assertEquals(-1, function.indexOfX(2));
+        assertEquals(2, function.indexOfX(3));
+        assertEquals(-1, function.indexOfX(6));
     }
     @Test
     public void testIndexOfY() {

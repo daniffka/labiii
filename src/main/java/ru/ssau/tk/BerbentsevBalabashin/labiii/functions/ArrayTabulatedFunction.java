@@ -176,11 +176,11 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     @Override
     public Iterator<Point> iterator() {
         return new Iterator<Point>() {
-            private int index = 0;
+            private int i = 0;
 
             @Override
             public boolean hasNext() {
-                return index < count;
+                return i < count;
             }
 
             @Override
@@ -188,8 +188,8 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
-                Point point = new Point(xValues[index], yValues[index]);
-                index++;
+                Point point = new Point(xValues[i], yValues[i]);
+                i++;
                 return point;
             }
         };
