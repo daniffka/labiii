@@ -1,7 +1,12 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
 
 import org.junit.jupiter.api.Test;
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LinkedListTabulatedFunctionTest {
@@ -54,12 +59,12 @@ public class LinkedListTabulatedFunctionTest {
 
     @Test
     public void testIndexOfX() {
-        double[] xValues = {4, 8, 23, 14, 24};
-        double[] yValues = {1, 4, 92, 18, 25};
+        double[] xValues = {1, 2, 3, 4, 5};
+        double[] yValues = {1, 4, 9, 16, 25};
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
 
-        assertEquals(0, function.indexOfX(4));
-        assertEquals(-1, function.indexOfX(2));
+        assertEquals(2, function.indexOfX(3));
+        assertEquals(-1, function.indexOfX(6));
     }
     @Test
     public void testIndexOfY() {
@@ -181,5 +186,33 @@ public class LinkedListTabulatedFunctionTest {
         assertEquals(6, function.getCount());
     }
 
+    @Test
+    public void iteratorForEachTest() {
+        double[] xValues = {2, 4, 6, 8, 10};
+        double[] yValues = {4, 16, 36, 64, 100};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+        int i = 0;
+        for (Point point : function) {
+            assertEquals(xValues[i], point.x, 1e-6);
+            assertEquals(yValues[i], point.y, 1e-6);
+            i++;
+        }
+    }
+
+    @Test
+    public void iteratorWhileTest() {
+        double[] xValues = {2, 4, 6, 8, 10};
+        double[] yValues = {4, 16, 36, 64, 100};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+        Iterator<Point> iterator = function.iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            Point point = iterator.next();
+            assertEquals(xValues[i], point.x, 1e-6);
+            assertEquals(yValues[i], point.y, 1e-6);
+            i++;
+        }
+        assertThrows(NoSuchElementException.class, iterator::next);
+    }
 
 }
