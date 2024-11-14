@@ -5,7 +5,7 @@ import ru.ssau.tk.BerbentsevBalabashin.labiii.functions.ArrayTabulatedFunction;
 import static org.junit.jupiter.api.Assertions.*;
 public class ArrayTabulatedFunctionFactoryTest {
     @Test
-    public void testCreate() {
+    public void createArrayTest() {
         ArrayTabulatedFunctionFactory factory = new ArrayTabulatedFunctionFactory();
         double[] xValues = {1, 4, 6, 8, 10};
         double[] yValues = {1, 16, 36, 64, 100};
