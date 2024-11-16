@@ -35,6 +35,29 @@ public final class FunctionsIO {
             dos.flush();
         }
     }
+
+    public static TabulatedFunction readTabulatedFunction(BufferedReader reader, TabulatedFunctionFactory factory) throws IOException{
+        String line = reader.readLine();
+        int count = Integer.parseInt(line.trim());
+        double[] xValues = new double[count];
+        double[] yValues = new double[count];
+
+        NumberFormat numberFormat = NumberFormat.getInstance(Locale.forLanguageTag("ru"));
+
+        for (int i = 0; i<count; i++){
+            try{
+                line = reader.readLine();
+                String[] parts = line.split(" ");
+                xValues[i] = numberFormat.parse(parts[0]).doubleValue();
+                yValues[i] = numberFormat.parse(parts[0]).doubleValue();
+
+            } catch (ParseException exception){
+                throw new IOException(exception);
+            }
+        }
+        return factory.create(xValues,yValues);
+    }
+
     public static TabulatedFunction readTabulatedFunction(BufferedInputStream inputStream, TabulatedFunctionFactory factory) throws IOException {
         try (DataInputStream dis = new DataInputStream(inputStream)) {
             int size = dis.readInt();
