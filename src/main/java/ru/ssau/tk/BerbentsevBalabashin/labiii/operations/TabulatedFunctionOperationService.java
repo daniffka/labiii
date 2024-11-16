@@ -72,4 +72,12 @@ public class TabulatedFunctionOperationService {
 
     }
 
+    public TabulatedFunction mult(TabulatedFunction a, TabulatedFunction b) throws InconsistentFunctionsException{
+        return doOperation(a,b,((u, v) -> u * v));
+    }
+
+    public TabulatedFunction div(TabulatedFunction a, TabulatedFunction b) throws InconsistentFunctionsException{
+        return doOperation(a,b,((u, v) -> u / v));
+    }
+
 }
