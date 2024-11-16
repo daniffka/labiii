@@ -1,11 +1,14 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 import java.util.Iterator;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.NoSuchElementException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
 
-public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable,Insertable{
+public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable,Insertable,Serializable{
+
     private int count;
     private Node head;
 
