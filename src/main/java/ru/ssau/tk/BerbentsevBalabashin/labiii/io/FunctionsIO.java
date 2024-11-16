@@ -13,7 +13,7 @@ public final class FunctionsIO {
         throw new UnsupportedOperationException("Class is final");
     }
 
-    void writeTabulatedFunction(BufferedWriter writer, TabulatedFunction function){
+    public static void writeTabulatedFunction(BufferedWriter writer, TabulatedFunction function){
         try(PrintWriter printWriter = new PrintWriter(writer)){
             printWriter.println(function.getCount());
             for (Point point: function){
