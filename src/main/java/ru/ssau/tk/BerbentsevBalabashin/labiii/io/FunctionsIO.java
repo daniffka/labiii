@@ -72,4 +72,13 @@ public final class FunctionsIO {
         }
 
     }
+
+    public static void serialize(BufferedOutputStream stream, TabulatedFunction function) throws IOException {
+
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(stream);
+        objectOutputStream.writeObject(function);
+        objectOutputStream.flush();
+    }
+
+
 }
