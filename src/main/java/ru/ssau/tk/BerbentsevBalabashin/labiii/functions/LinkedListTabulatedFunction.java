@@ -9,6 +9,8 @@ import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
 
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Removable,Insertable,Serializable{
 
+    @Serial
+    private static final long serialVersionUID = 2161617884524327447L;
     private int count;
     private Node head;
 
