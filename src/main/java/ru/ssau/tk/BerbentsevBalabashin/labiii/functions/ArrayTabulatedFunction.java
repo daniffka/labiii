@@ -2,11 +2,17 @@ package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Insertable,Removable{
+public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Insertable,Removable,Serializable {
 
+
+    @Serial
+    private static final long serialVersionUID = -7646760586856208677L;
     protected double[] xValues;
     protected double[] yValues;
     protected int count;
