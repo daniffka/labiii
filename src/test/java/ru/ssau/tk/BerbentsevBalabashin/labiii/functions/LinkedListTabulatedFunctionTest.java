@@ -14,11 +14,25 @@ public class LinkedListTabulatedFunctionTest {
     @Test
     public void ConstructorWithArrays_test() {
         double[] xValues = {1, 2, 3, 4, 5};
-        double[] yValues = {6, 7, 8, 9, 10};
+        double[] yValues = {1, 4, 9, 16, 25};
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+        assertDoesNotThrow(()->{
+            new LinkedListTabulatedFunction(new double[]{1.0, 2.0, 3.0}, new double[]{2.0, 4.0, 6.0});
+        });
+        assertThrows(DifferentLengthOfArraysException.class, ()->{
+            new LinkedListTabulatedFunction(new double[]{1.0, 2.0, 3.0}, new double[]{2.0, 4.0});
+        });
+        assertThrows(DifferentLengthOfArraysException.class, ()->{
+            new LinkedListTabulatedFunction(new double[]{1.0, 2.0}, new double[]{2.0, 4.0, 6.0});
+        });
+
+        assertThrows(ArrayIsNotSortedException.class, ()->{
+            new LinkedListTabulatedFunction(new double[]{2.0, 1.0, 3.0}, new double[]{2.0, 4.0, 6.0});
+        });
+
         assertEquals(5, function.getCount());
         assertEquals(4, function.getX(3));
-        assertEquals(8, function.getY(2));
+        assertEquals(9, function.getY(2));
     }
 
     @Test
@@ -29,6 +43,7 @@ public class LinkedListTabulatedFunctionTest {
         assertEquals(5, function.getCount());
         assertEquals(2, function.getX(1));
         assertEquals(16, function.getY(3));
+        assertThrows(IllegalArgumentException.class, () -> new LinkedListTabulatedFunction(sqrFunction, 0, 5, 1));
     }
 
     @Test
@@ -36,8 +51,8 @@ public class LinkedListTabulatedFunctionTest {
         double[] xValues = {1, 2, 4, 7, 8};
         double[] yValues = {6, 7, 8, 11 ,16};
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
-
         assertEquals(7, function.getX(3));
+        assertThrows(IllegalArgumentException.class, () -> function.getX(-1));
     }
 
     @Test
@@ -47,6 +62,7 @@ public class LinkedListTabulatedFunctionTest {
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
 
         assertEquals(34, function.getY(1));
+        assertThrows(IllegalArgumentException.class, () -> function.getX(-1));
     }
     public void SetY_test() {
         double[] xValues = {1, 2, 3, 4, 5};
@@ -55,6 +71,7 @@ public class LinkedListTabulatedFunctionTest {
 
         function.setY(3, 8);
         assertEquals(8, function.getY(3));
+        assertThrows(IllegalArgumentException.class, () -> function.getX(-1));
     }
 
     @Test
