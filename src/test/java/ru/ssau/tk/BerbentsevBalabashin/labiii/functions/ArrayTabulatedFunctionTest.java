@@ -83,6 +83,41 @@ class ArrayTabulatedFunctionTest {
     }
 
     @Test
+    public void testConstructors() {
+        double[] xValues = {1., 2., 3.};
+        double[] yValues = {2., 4., 6.};
+        ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xValues, yValues);
+
+        assertDoesNotThrow(()->{
+            new ArrayTabulatedFunction(new double[]{1.0, 2.0, 3.0}, new double[]{2.0, 4.0, 6.0});
+        });
+        assertThrows(DifferentLengthOfArraysException.class, ()->{
+            new ArrayTabulatedFunction(new double[]{1.0, 2.0, 3.0}, new double[]{2.0, 4.0});
+        });
+        assertThrows(DifferentLengthOfArraysException.class, ()->{
+            new ArrayTabulatedFunction(new double[]{1.0, 2.0}, new double[]{2.0, 4.0, 6.0});
+        });
+
+        assertThrows(ArrayIsNotSortedException.class, ()->{
+            new ArrayTabulatedFunction(new double[]{2.0, 1.0, 3.0}, new double[]{2.0, 4.0, 6.0});
+        });
+
+        assertEquals(3, arrayTabulatedFunction.getCount());
+        assertEquals(1., arrayTabulatedFunction.getX(0));
+        assertEquals(2., arrayTabulatedFunction.getY(0));
+        assertEquals(3., arrayTabulatedFunction.getX(2));
+        assertEquals(6., arrayTabulatedFunction.getY(2));
+        assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(new double[]{1}, new double[]{1}));
+
+        MathFunction func = x -> x * 2;
+        ArrayTabulatedFunction arrayTabulatedFunctionMath = new ArrayTabulatedFunction(func, 0, 4, 5);
+
+        assertEquals(5, arrayTabulatedFunctionMath.getCount());
+        assertEquals(0., arrayTabulatedFunctionMath.getX(0));
+        assertEquals(8., arrayTabulatedFunctionMath.getY(4));
+        assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(func, 0, 5, 1));
+    }
+    @Test
     void indexOfX() {
         double[] xVal = {1.,2.,3.};
         double[] yVal = {3.,4.,5.};
