@@ -157,15 +157,6 @@ public class LinkedListTabulatedFunctionTest {
         function.remove(0);
     }
 
-    public void testInsertionReplace() {
-        double[] xValues = {1, 2, 3, 4, 5};
-        double[] yValues = {1, 4, 9, 16, 25};
-        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
-
-        function.insert(3, 10);
-        assertEquals(10, function.getY(function.indexOfX(3)), 1e-6);
-    }
-
     @Test
     public void testInsertionBetween() {
         double[] xValues = {1, 2, 3, 4, 5};
