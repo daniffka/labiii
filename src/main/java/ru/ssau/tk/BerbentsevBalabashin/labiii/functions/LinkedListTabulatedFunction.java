@@ -179,9 +179,11 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     @Override
     public void remove(int index) {
-        if (count == 0) {
-            return;
-        }
+        if (count == 0)
+            throw new IllegalArgumentException("list is empty");
+
+        if (index < 0 || index >= count)
+            throw new IllegalArgumentException("index is out of bounds");
         Node toRemove = getNode(index);
 
         if (count == 1) {
