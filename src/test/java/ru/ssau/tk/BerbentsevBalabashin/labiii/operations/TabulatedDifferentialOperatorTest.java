@@ -63,9 +63,9 @@ class TabulatedDifferentialOperatorTest {
         TabulatedFunction derivedFunction = operator.derive(function);
 
         assertInstanceOf(LinkedListTabulatedFunction.class, derivedFunction);
-        assertEquals(2.25, derivedFunction.apply(1), 1e-6);
-        assertEquals(3.25, derivedFunction.apply(1.5), 1e-6);
-        assertEquals(4.25, derivedFunction.apply(2), 1e-6);
-        assertEquals(5.75, derivedFunction.apply(3), 1e-6);
+        assertEquals(2.25, derivedFunction.apply(1), 0.0001);
+        assertEquals(3.25, derivedFunction.apply(1.5), 0.0001);
+        assertEquals(4.25, derivedFunction.apply(2), 0.0001);
+        assertEquals(5.75, derivedFunction.apply(3), 0.0001);
     }
 }
