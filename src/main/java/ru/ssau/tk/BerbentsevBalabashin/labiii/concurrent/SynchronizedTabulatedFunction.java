@@ -74,14 +74,11 @@ public class SynchronizedTabulatedFunction implements TabulatedFunction {
         synchronized (function) {
             Point[] points = TabulatedFunctionOperationService.asPoints(function);
             return new Iterator<Point>() {
-
                 private int i = 0;
-
                 @Override
                 public boolean hasNext() {
                     return i < points.length;
                 }
-
                 @Override
                 public Point next() {
                     if (!hasNext())
