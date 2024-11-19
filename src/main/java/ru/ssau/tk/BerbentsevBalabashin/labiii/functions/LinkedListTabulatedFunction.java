@@ -15,7 +15,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
     private Node head;
 
 
-    private static class Node {
+    private static class Node implements Serializable {
         public double x;
         public double y;
         public Node next;
