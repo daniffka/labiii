@@ -11,7 +11,7 @@ public class ArrayTabulatedFunctionSerialization {
 
         String filePath = "output/serialized array functions.bin";
 
-        TabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(new double[]{10.0,2.3,4.44}, new double[]{10,23,444});
+        TabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(new double[]{1.2,2.3,44.44}, new double[]{12,23,4444});
         TabulatedDifferentialOperator differentialOperator = new TabulatedDifferentialOperator();
         TabulatedFunction firstDerivative = differentialOperator.derive(arrayTabulatedFunction);
         TabulatedFunction secondDerivative = differentialOperator.derive(firstDerivative);
