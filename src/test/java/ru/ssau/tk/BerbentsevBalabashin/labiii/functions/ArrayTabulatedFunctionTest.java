@@ -1,5 +1,5 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
-
+import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
 import org.junit.jupiter.api.Test;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
@@ -173,22 +173,6 @@ class ArrayTabulatedFunctionTest {
     }
 
     @Test
-    public void testGetY_ThrowsIndexOutOfBoundsException() {
-        double[] xValues = {1, 2, 3};
-        double[] yValues = {4, 5, 6};
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
-        assertThrows(IndexOutOfBoundsException.class, () -> function.getY(3));
-    }
-
-    @Test
-    public void testSetY_ThrowsIndexOutOfBoundsException() {
-        double[] xValues = {1, 2, 3};
-        double[] yValues = {4, 5, 6};
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
-        assertThrows(IndexOutOfBoundsException.class, () -> function.setY(3, 10));
-    }
-
-    @Test
     void TestDefConstructorSortedArr(){
         ArrayIsNotSortedException arrayIsNotSortedException= new ArrayIsNotSortedException();
         assertNull(arrayIsNotSortedException.getMessage());
@@ -206,7 +190,28 @@ class ArrayTabulatedFunctionTest {
         DifferentLengthOfArraysException differentLengthOfArraysException = new DifferentLengthOfArraysException(message);
         assertEquals(message,differentLengthOfArraysException.getMessage());
     }
+    @Test
+    public void testGetY_ThrowsIndexOutOfBoundsException() {
+        double[] xValues = {1, 2, 3};
+        double[] yValues = {4, 5, 6};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+        assertThrows(IndexOutOfBoundsException.class, () -> function.getY(3));
+    }
 
+    @Test
+    public void testSetY_ThrowsIndexOutOfBoundsException() {
+        double[] xValues = {1, 2, 3};
+        double[] yValues = {4, 5, 6};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+        assertThrows(IndexOutOfBoundsException.class, () -> function.setY(3, 10));
+    }
+    @Test
+    public void testInterpolate_ThrowsInterpolationException() {
+        double[] xValues = {1, 2, 3};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, new double[]{4, 5, 6});
+        assertThrows(InterpolationException.class, () -> function.interpolate(0, 0));
+        assertThrows(InterpolationException.class, () -> function.interpolate(5, 1));
+    }
 
 
 
