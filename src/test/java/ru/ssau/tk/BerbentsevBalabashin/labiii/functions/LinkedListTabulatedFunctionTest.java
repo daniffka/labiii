@@ -36,6 +36,13 @@ public class LinkedListTabulatedFunctionTest {
     }
 
     @Test
+    public void testConstructorWithArrays_ThrowsIllegalArgumentException() {
+        double[] xValues = {2};
+        double[] yValues = {5};
+        assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(xValues, yValues));
+    }
+
+    @Test
     public void ConstructorWithMathFunction_test() {
         MathFunction sqrFunction = new SqrFunction();
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(sqrFunction, 1, 5, 5);

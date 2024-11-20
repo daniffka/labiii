@@ -118,6 +118,13 @@ class ArrayTabulatedFunctionTest {
     }
 
     @Test
+    public void testConstructorWithArrays_ThrowsIllegalArgumentException() {
+        double[] xValues = {2};
+        double[] yValues = {5};
+        assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(xValues, yValues));
+    }
+
+    @Test
     void indexOfX() {
         double[] xVal = {1.,2.,3.};
         double[] yVal = {3.,4.,5.};
