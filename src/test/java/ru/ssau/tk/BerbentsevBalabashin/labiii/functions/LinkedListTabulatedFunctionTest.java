@@ -64,6 +64,8 @@ public class LinkedListTabulatedFunctionTest {
         assertEquals(34, function.getY(1));
         assertThrows(IllegalArgumentException.class, () -> function.getX(-1));
     }
+
+    @Test
     public void SetY_test() {
         double[] xValues = {1, 2, 3, 4, 5};
         double[] yValues = {1, 4, 9, 16, 25};
@@ -95,11 +97,13 @@ public class LinkedListTabulatedFunctionTest {
 
     @Test
     public void testFloorIndexOfX() {
-        double[] xValues = {2, 4, 6, 11, 12};
-        double[] yValues = {13, 15, 17, 18, 25};
+        double[] xValues = {1, 2, 3, 4, 5};
+        double[] yValues = {1, 4, 9, 16, 25};
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
-        assertEquals(1, function.floorIndexOfX(5));
+        assertEquals(2, function.floorIndexOfX(3.5));
+        assertThrows(IllegalArgumentException.class, () -> function.floorIndexOfX(0.5));
     }
+
     @Test
     public void testInterpolate() {
         double[] xValues = {1, 3, 6, 7, 9};
@@ -196,6 +200,25 @@ public class LinkedListTabulatedFunctionTest {
     }
 
     @Test
+    public void testInterpolate_OutsideInterpolationInterval_ThrowsException() {
+        double[] xValues = {1, 2, 3};
+        double[] yValues = {4, 5, 6};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+        assertThrows(InterpolationException.class, () -> function.interpolate(0, 0));
+        assertThrows(InterpolationException.class, () -> function.interpolate(4, 1));
+    }
+    @Test
+    public void testIterator_NextWithoutHasNext_ThrowsException() {
+        double[] xValues = {1, 2, 3};
+        double[] yValues = {4, 5, 6};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+        var iterator = function.iterator();
+        iterator.next();
+        iterator.next();
+        iterator.next();
+        assertThrows(NoSuchElementException.class, iterator::next);
+    }
+    @Test
     public void iteratorForEachTest() {
         double[] xValues = {2, 4, 6, 8, 10};
         double[] yValues = {4, 16, 36, 64, 100};
@@ -223,5 +246,6 @@ public class LinkedListTabulatedFunctionTest {
         }
         assertThrows(NoSuchElementException.class, iterator::next);
     }
+
 
 }
