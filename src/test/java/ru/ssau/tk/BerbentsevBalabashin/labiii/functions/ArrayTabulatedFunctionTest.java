@@ -16,6 +16,7 @@ class ArrayTabulatedFunctionTest {
 
         assertEquals(1,arrayTabulatedFunction.floorIndexOfX(2.5));
         assertEquals(2,arrayTabulatedFunction.floorIndexOfX(4));
+
         assertThrows(IllegalArgumentException.class, () -> arrayTabulatedFunction.floorIndexOfX(0.5));
     }
 
