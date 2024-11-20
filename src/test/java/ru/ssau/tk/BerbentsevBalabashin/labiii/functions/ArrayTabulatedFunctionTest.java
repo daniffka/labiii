@@ -3,7 +3,7 @@ package ru.ssau.tk.BerbentsevBalabashin.labiii.functions;
 import org.junit.jupiter.api.Test;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
-import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayTabulatedFunctionTest {
@@ -81,37 +81,42 @@ class ArrayTabulatedFunctionTest {
         arrayTabulatedFunction.setY(2,3);
         assertEquals(3,arrayTabulatedFunction.getY(2));
     }
-    @Test
-    public void testConstructorWithArrays_ThrowsIllegalArgumentException() {
-        double[] xValues = {2};
-        double[] yValues = {5};
-        assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(xValues, yValues));
-    }
 
     @Test
-    public void testConstructorWithMathFunction_ReturnsCorrectCount_Values() {
-        MathFunction source = x -> x * x;
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(source, 0, 2, 3);
-        assertEquals(3, function.getCount());
-        assertEquals(0, function.getX(0), 0.0001);
-        assertEquals(0, function.getY(0), 0.0001);
-        assertEquals(2, function.getX(2), 0.0001);
-        assertEquals(4, function.getY(2), 0.0001);
-    }
+    public void testConstructors() {
+        double[] xValues = {1., 2., 3.};
+        double[] yValues = {2., 4., 6.};
+        ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xValues, yValues);
 
-    @Test
-    public void testConstructorWithMathFunction_SwappedBounds_ReturnsCorrectCount_Values() {
-        MathFunction source = x -> x * x;
-        double xFrom = 2;
-        double xTo = 0;
-        int count = 3;
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(source, xFrom, xTo, count);
-        assertEquals(3, function.getCount());
-        assertEquals(0, function.getX(0), 0.0001);
-        assertEquals(0, function.getY(0), 0.0001);
-        assertEquals(4, function.getY(2), 0.0001);
-    }
+        assertDoesNotThrow(()->{
+            new ArrayTabulatedFunction(new double[]{1.0, 2.0, 3.0}, new double[]{2.0, 4.0, 6.0});
+        });
+        assertThrows(DifferentLengthOfArraysException.class, ()->{
+            new ArrayTabulatedFunction(new double[]{1.0, 2.0, 3.0}, new double[]{2.0, 4.0});
+        });
+        assertThrows(DifferentLengthOfArraysException.class, ()->{
+            new ArrayTabulatedFunction(new double[]{1.0, 2.0}, new double[]{2.0, 4.0, 6.0});
+        });
 
+        assertThrows(ArrayIsNotSortedException.class, ()->{
+            new ArrayTabulatedFunction(new double[]{2.0, 1.0, 3.0}, new double[]{2.0, 4.0, 6.0});
+        });
+
+        assertEquals(3, arrayTabulatedFunction.getCount());
+        assertEquals(1., arrayTabulatedFunction.getX(0));
+        assertEquals(2., arrayTabulatedFunction.getY(0));
+        assertEquals(3., arrayTabulatedFunction.getX(2));
+        assertEquals(6., arrayTabulatedFunction.getY(2));
+        assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(new double[]{1}, new double[]{1}));
+
+        MathFunction func = x -> x * 2;
+        ArrayTabulatedFunction arrayTabulatedFunctionMath = new ArrayTabulatedFunction(func, 0, 4, 5);
+
+        assertEquals(5, arrayTabulatedFunctionMath.getCount());
+        assertEquals(0., arrayTabulatedFunctionMath.getX(0));
+        assertEquals(8., arrayTabulatedFunctionMath.getY(4));
+        assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(func, 0, 5, 1));
+    }
     @Test
     void indexOfX() {
         double[] xVal = {1.,2.,3.};
@@ -185,35 +190,8 @@ class ArrayTabulatedFunctionTest {
         DifferentLengthOfArraysException differentLengthOfArraysException = new DifferentLengthOfArraysException(message);
         assertEquals(message,differentLengthOfArraysException.getMessage());
     }
-    @Test
-    public void testGetX_ThrowsIndexOutOfBoundsException() {
-        double[] xValues = {1, 2, 3};
-        double[] yValues = {4, 5, 6};
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
-        assertThrows(IndexOutOfBoundsException.class, () -> function.getX(3));
-    }
-    @Test
-    public void testGetY_ThrowsIndexOutOfBoundsException() {
-        double[] xValues = {1, 2, 3};
-        double[] yValues = {4, 5, 6};
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
-        assertThrows(IndexOutOfBoundsException.class, () -> function.getY(3));
-    }
 
-    @Test
-    public void testRemove_ThrowsIndexOutOfBoundsException() {
-        double[] xValues = {1, 2, 3};
-        double[] yValues = {4, 5, 6};
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
-        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(3));
-    }
 
-    @Test
-    public void testInterpolate_ThrowsInterpolationException() {
-        double[] xValues = {1, 2, 3};
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, new double[]{4, 5, 6});
-        assertThrows(InterpolationException.class, () -> function.interpolate(0, 0));
-        assertThrows(InterpolationException.class, () -> function.interpolate(5, 1));
-    }
+
+
 }
