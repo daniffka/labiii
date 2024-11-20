@@ -53,7 +53,7 @@ public class TabulatedFunctionOperationService {
         double[] yValues=new double[pointB.length];
 
         for(int i=0; i<pointA.length; i++) {
-            if (pointA[i].getX() != pointB[i].getY())
+            if (pointA[i].getX() != pointB[i].getX())
                 throw new InconsistentFunctionsException("values must be the identical");
 
             xValues[i] = pointA[i].getX();
