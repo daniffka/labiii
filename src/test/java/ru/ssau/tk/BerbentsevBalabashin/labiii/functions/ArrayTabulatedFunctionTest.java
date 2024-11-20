@@ -173,6 +173,22 @@ class ArrayTabulatedFunctionTest {
     }
 
     @Test
+    public void testGetY_ThrowsIndexOutOfBoundsException() {
+        double[] xValues = {1, 2, 3};
+        double[] yValues = {4, 5, 6};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+        assertThrows(IndexOutOfBoundsException.class, () -> function.getY(3));
+    }
+
+    @Test
+    public void testSetY_ThrowsIndexOutOfBoundsException() {
+        double[] xValues = {1, 2, 3};
+        double[] yValues = {4, 5, 6};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+        assertThrows(IndexOutOfBoundsException.class, () -> function.setY(3, 10));
+    }
+
+    @Test
     void TestDefConstructorSortedArr(){
         ArrayIsNotSortedException arrayIsNotSortedException= new ArrayIsNotSortedException();
         assertNull(arrayIsNotSortedException.getMessage());
