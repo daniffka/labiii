@@ -118,6 +118,15 @@ class ArrayTabulatedFunctionTest {
         assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(func, 0, 5, 1));
     }
     @Test
+    public void testConstructorWithMathFunction_ReturnsCorrectValues() {
+        MathFunction source = x -> x * x;
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(source, 0, 2, 3);
+        assertEquals(3, function.getCount());
+        assertEquals(0, function.getX(0), 0.0001);
+        assertEquals(0, function.getY(0), 0.0001);
+    }
+
+    @Test
     void indexOfX() {
         double[] xVal = {1.,2.,3.};
         double[] yVal = {3.,4.,5.};
@@ -185,6 +194,13 @@ class ArrayTabulatedFunctionTest {
     }
 
     @Test
+    public void testGetX_ThrowsIndexOutOfBoundsException() {
+        double[] xValues = {1, 2, 3};
+        double[] yValues = {4, 5, 6};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+        assertThrows(IndexOutOfBoundsException.class, () -> function.getX(3));
+    }
+    @Test
     void TestMessageConstructorDifferentLength() {
         String message = "Arrays length isn't the same";
         DifferentLengthOfArraysException differentLengthOfArraysException = new DifferentLengthOfArraysException(message);
@@ -211,6 +227,14 @@ class ArrayTabulatedFunctionTest {
         ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, new double[]{4, 5, 6});
         assertThrows(InterpolationException.class, () -> function.interpolate(0, 0));
         assertThrows(InterpolationException.class, () -> function.interpolate(5, 1));
+    }
+    @Test
+    public void testRemove_ThrowsIndexOutOfBoundsException() {
+        double[] xValues = {1, 2, 3};
+        double[] yValues = {4, 5, 6};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(3));
     }
 
 
