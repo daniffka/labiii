@@ -3,7 +3,8 @@ import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.InterpolationException;
 import org.junit.jupiter.api.Test;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.ArrayIsNotSortedException;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.exeptions.DifferentLengthOfArraysException;
-
+import java.util.Iterator;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayTabulatedFunctionTest {
@@ -191,6 +192,20 @@ class ArrayTabulatedFunctionTest {
     void TestDefConstructorDifferentLength() {
         DifferentLengthOfArraysException differentLengthOfArraysException= new DifferentLengthOfArraysException();
         assertNull(differentLengthOfArraysException.getMessage());
+    }
+
+    @Test
+    void testIterator() {
+        double[] values = {52,69,545};
+
+        ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(values,new double[] {5.2,6.9,5.45});
+        Iterator<Point> iterator = arrayTabulatedFunction.iterator();
+        assertTrue(iterator.hasNext());
+        assertEquals(52,iterator.next().getX());
+        assertTrue(iterator.hasNext());
+        assertEquals(69,iterator.next().getX());
+        assertTrue(iterator.hasNext());
+        assertEquals(545,iterator.next().getX());
     }
 
     @Test
