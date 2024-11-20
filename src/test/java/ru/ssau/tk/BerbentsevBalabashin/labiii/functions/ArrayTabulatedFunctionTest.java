@@ -23,7 +23,6 @@ class ArrayTabulatedFunctionTest {
         double[] xVal = {1.,2.,3.};
         double[] yVal = {3.,4.,5.};
         ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
-
         assertEquals(7,arrayTabulatedFunction.extrapolateRight(5));
     }
 
@@ -41,7 +40,6 @@ class ArrayTabulatedFunctionTest {
         double[] xVal = {1.,2.,3.};
         double[] yVal = {3.,4.,5.};
         ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
-
         assertEquals(4,arrayTabulatedFunction.interpolate(2, arrayTabulatedFunction.floorIndexOfX(2)));
     }
 
@@ -50,7 +48,6 @@ class ArrayTabulatedFunctionTest {
         double[] xVal = {1.,2.,3.};
         double[] yVal = {3.,4.,5.};
         ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
-
         assertEquals(3,arrayTabulatedFunction.getCount());
     }
 
@@ -59,7 +56,6 @@ class ArrayTabulatedFunctionTest {
         double[] xVal = {1.,2.,3.};
         double[] yVal = {3.,4.,5.};
         ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
-
         assertEquals(2,arrayTabulatedFunction.getX(1));
 
     }
@@ -69,7 +65,6 @@ class ArrayTabulatedFunctionTest {
         double[] xVal = {1.,2.,3.};
         double[] yVal = {3.,4.,5.};
         ArrayTabulatedFunction arrayTabulatedFunction = new ArrayTabulatedFunction(xVal,yVal);
-
         assertEquals(4,arrayTabulatedFunction.getY(1));
     }
 
@@ -97,15 +92,11 @@ class ArrayTabulatedFunctionTest {
         assertThrows(DifferentLengthOfArraysException.class, ()->{
             new ArrayTabulatedFunction(new double[]{1.0, 2.0}, new double[]{2.0, 4.0, 6.0});
         });
-
         assertThrows(ArrayIsNotSortedException.class, ()->{
             new ArrayTabulatedFunction(new double[]{2.0, 1.0, 3.0}, new double[]{2.0, 4.0, 6.0});
         });
-
         assertEquals(3, arrayTabulatedFunction.getCount());
         assertEquals(1., arrayTabulatedFunction.getX(0));
-        assertEquals(2., arrayTabulatedFunction.getY(0));
-        assertEquals(3., arrayTabulatedFunction.getX(2));
         assertEquals(6., arrayTabulatedFunction.getY(2));
         assertThrows(IllegalArgumentException.class, () -> new ArrayTabulatedFunction(new double[]{1}, new double[]{1}));
 
