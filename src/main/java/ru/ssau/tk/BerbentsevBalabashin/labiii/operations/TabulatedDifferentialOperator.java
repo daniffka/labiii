@@ -9,9 +9,11 @@ public class TabulatedDifferentialOperator implements DifferentialOperator<Tabul
     public TabulatedDifferentialOperator() {
         this.factory = new ArrayTabulatedFunctionFactory();
     }
+
     public TabulatedDifferentialOperator(TabulatedFunctionFactory factory) {
         this.factory = factory;
     }
+
     public TabulatedFunctionFactory getFactory() {
         return factory;
     }
@@ -36,7 +38,6 @@ public class TabulatedDifferentialOperator implements DifferentialOperator<Tabul
 
         return factory.create(xValues, yValues);
     }
-
     public TabulatedFunction deriveSynchronously(TabulatedFunction function) {
         SynchronizedTabulatedFunction synchronizedTabulatedFunction;
 
@@ -45,6 +46,7 @@ public class TabulatedDifferentialOperator implements DifferentialOperator<Tabul
         } else {
             synchronizedTabulatedFunction = new SynchronizedTabulatedFunction(function);
         }
+
         return synchronizedTabulatedFunction.doSynchronously(this::derive);
     }
 
