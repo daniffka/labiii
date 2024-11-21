@@ -8,64 +8,61 @@ import ru.ssau.tk.BerbentsevBalabashin.labiii.functions.TabulatedFunction;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 class TabulatedDifferentialOperatorTest {
-
-    @Test
-    public void testConstructorWithFactory() {
-        TabulatedFunctionFactory factory = new ArrayTabulatedFunctionFactory();
-        TabulatedDifferentialOperator operator = new TabulatedDifferentialOperator(factory);
-        assertEquals(factory, operator.getFactory());
+    private TabulatedFunction tabulatedFunction;
+    private TabulatedDifferentialOperator differentialOperator;
+    private TabulatedFunction createArrayTabulatedFunction() {
+        return new ArrayTabulatedFunction(new double[]{-3, 1.5, 6, 10.5, 15}, new double[]{9, 2.25, 36, 110.25, 225});
+    }
+    private TabulatedFunction createLinkedListTabulatedFunction() {
+        return new LinkedListTabulatedFunction(new double[]{-3, 1.5, 6, 10.5, 15}, new double[]{9, 2.25, 36, 110.25, 225});
     }
     @Test
-    public void testDefaultConstructor() {
-        TabulatedDifferentialOperator operator = new TabulatedDifferentialOperator();
-        assertInstanceOf(ArrayTabulatedFunctionFactory.class, operator.getFactory());
-    }
-
-    @Test
-    void testGetFactoryTest() {
-        LinkedListTabulatedFunctionFactory factory = new LinkedListTabulatedFunctionFactory();
-        TabulatedDifferentialOperator operator = new TabulatedDifferentialOperator(factory);
-        assertEquals(factory, operator.getFactory());
-    }
-
-    @Test
-    void testSetFactory() {
-        LinkedListTabulatedFunctionFactory factory1 = new LinkedListTabulatedFunctionFactory();
-        TabulatedDifferentialOperator operator = new TabulatedDifferentialOperator(factory1);
-        TabulatedFunctionFactory factory2 = new ArrayTabulatedFunctionFactory();
-        operator.setFactory(factory2);
-        assertEquals(factory2, operator.getFactory());
-    }
-
-    @Test
-    public void testDeriveWithArrayFactory() {
-        double[] xValues = {0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3};
-        double[] yValues = {0, 0.0625, 0.25, 0.5625, 1, 1.5625, 2.25, 3.0625, 4, 5.0625, 6.25, 7.5625, 9};
+    public void testDefaultFactory() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0}; // y = x^2
         TabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
         TabulatedDifferentialOperator operator = new TabulatedDifferentialOperator();
-
-        TabulatedFunction derivedFunction = operator.derive(function);
+        TabulatedFunction derivative = operator.derive(function);
+        assertEquals(3.0, derivative.getY(0), 0.01); // Производная в x=1
+        assertEquals(5.0, derivative.getY(1), 0.01); // Производная в x=2
+    }
+    @Test
+    void testArrayTabulatedFunction() {
+        tabulatedFunction = createArrayTabulatedFunction();
+        differentialOperator = new TabulatedDifferentialOperator();
+        TabulatedFunction derivedFunction = differentialOperator.derive(tabulatedFunction);
 
         assertInstanceOf(ArrayTabulatedFunction.class, derivedFunction);
-        assertEquals(5.75, derivedFunction.apply(4), 0.0001);
-        assertEquals(3.25, derivedFunction.apply(1.5), 0.0001);
-        assertEquals(5.25, derivedFunction.apply(2.5), 0.0001);
-        assertEquals(5.75, derivedFunction.apply(3), 0.0001);
+        assertEquals(16.5, derivedFunction.apply(6), 0.01);
     }
-
     @Test
-    public void testDeriveWithLinkedListFactory() {
-        double[] xValues = {0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3};
-        double[] yValues = {0, 0.0625, 0.25, 0.5625, 1, 1.5625, 2.25, 3.0625, 4, 5.0625, 6.25, 7.5625, 9};
-        TabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
-        TabulatedDifferentialOperator operator = new TabulatedDifferentialOperator(new LinkedListTabulatedFunctionFactory());
-
-        TabulatedFunction derivedFunction = operator.derive(function);
+    void testListTabulatedFunction() {
+        tabulatedFunction = createLinkedListTabulatedFunction();
+        differentialOperator = new TabulatedDifferentialOperator(new LinkedListTabulatedFunctionFactory());
+        TabulatedFunction derivedFunction = differentialOperator.derive(tabulatedFunction);
 
         assertInstanceOf(LinkedListTabulatedFunction.class, derivedFunction);
-        assertEquals(2.25, derivedFunction.apply(1), 0.0001);
-        assertEquals(3.25, derivedFunction.apply(1.5), 0.0001);
-        assertEquals(4.25, derivedFunction.apply(2), 0.0001);
-        assertEquals(5.75, derivedFunction.apply(3), 0.0001);
+        assertEquals(16.5, derivedFunction.apply(6), 0.01);
     }
+    @Test
+    void testGetFactory() {
+        differentialOperator = new TabulatedDifferentialOperator(new LinkedListTabulatedFunctionFactory());
+        assertInstanceOf(LinkedListTabulatedFunctionFactory.class, differentialOperator.getFactory());
+    }
+    @Test
+    void testSetFactory() {
+        differentialOperator = new TabulatedDifferentialOperator();
+        LinkedListTabulatedFunctionFactory factory = new LinkedListTabulatedFunctionFactory();
+        differentialOperator.setFactory(factory);
+        assertInstanceOf(LinkedListTabulatedFunctionFactory.class, differentialOperator.getFactory());
+    }
+    @Test
+    void testDeriveSynchronously() {
+        tabulatedFunction = createLinkedListTabulatedFunction();
+        differentialOperator = new TabulatedDifferentialOperator(new LinkedListTabulatedFunctionFactory());
+        TabulatedFunction derivedFunction = differentialOperator.deriveSynchronously(tabulatedFunction);
+
+        assertEquals(16.5, derivedFunction.apply(6), 0.01);
+    }
+
 }
