@@ -12,7 +12,7 @@ import java.util.List;
 public class MathFunctionDTO {
 
     private int id;
-    private String functionType;
+    private String nameOfFunction;
     private Integer count;
     private Double xFrom;
     private Double xTo;
