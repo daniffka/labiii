@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part" />
+    <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,22 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
-    &quot;Application.BerbentsevBalabashinLabiiiApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LinkedListTabulatedFunctionSerialization.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ru.ssau.tk.BerbentsevBalabashin.labiii.BerbentsevBalabashinLabiiiApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.java in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.labiii in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "Application.BerbentsevBalabashinLabiiiApplication.executor": "Run",
+    "Application.LinkedListTabulatedFunctionSerialization.executor": "Run",
+    "Application.ru.ssau.tk.BerbentsevBalabashin.labiii.BerbentsevBalabashinLabiiiApplication.executor": "Run",
+    "JUnit.AbstractTabulatedFunctionTest.executor": "Run",
+    "JUnit.PointDTOTest.executor": "Run",
+    "JUnit.java in BerbentsevBalabashin-labiii.executor": "Run",
+    "JUnit.labiii in BerbentsevBalabashin-labiii.executor": "Run",
+    "JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.PointDTOTest">
+}]]></component>
+  <component name="RunManager" selected="JUnit.AbstractTabulatedFunctionTest">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.Application" />
       <module name="BerbentsevBalabashin-labiii" />
@@ -86,15 +90,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LinkedListTabulatedFunctionSerialization" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.io.LinkedListTabulatedFunctionSerialization" />
+    <configuration name="AbstractTabulatedFunctionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BerbentsevBalabashin-labiii" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.io.*" />
+          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.functions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.functions" />
+      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.functions.AbstractTabulatedFunctionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AbstractTabulatedFunctionTest" />
         <item itemvalue="JUnit.PointDTOTest" />
         <item itemvalue="JUnit.java in BerbentsevBalabashin-labiii" />
         <item itemvalue="Application.Application" />
         <item itemvalue="JUnit.labiii in BerbentsevBalabashin-labiii" />
-        <item itemvalue="Application.LinkedListTabulatedFunctionSerialization" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732637403981</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="xy part">
+      <option name="closed" value="true" />
+      <created>1732640590402</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732640590402</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
