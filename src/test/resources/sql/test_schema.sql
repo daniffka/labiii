@@ -8,13 +8,9 @@ create table db_schema.t_function(
     c_x_to double precision
 
 );
-
 create table db_schema.t_point(
     id serial primary key,
-    function_id integer,
-    foreign key (function_id) references db_schema.t_function(id) on delete cascade,
-    c_x_value double precision,
-    c_y_value double precision,
-
+    function_id integer references db_schema.t_function(id),
+     c_x_value double precision,
+     c_y_value double precision,
 );
-
