@@ -14,7 +14,7 @@ create table db_schema.t_point(
     function_id integer,
     c_x_value double precision,
     c_y_value double precision,
-    foreign key (function_id) references db_schema.t_function(id)
+    foreign key (function_id) references db_schema.t_function(id) on delete cascade
 
 );
 
