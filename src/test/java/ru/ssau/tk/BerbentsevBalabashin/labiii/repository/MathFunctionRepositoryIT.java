@@ -22,7 +22,7 @@ public class MathFunctionRepositoryIT {
     @BeforeEach
     public void setup() {
         MathFunctionEntity function = new MathFunctionEntity();
-        function.setNameOfFunction("Linear");
+        function.setFunctionType("Linear");
         this.mathFunctionRepository.save(function);
     }
 
@@ -33,6 +33,6 @@ public class MathFunctionRepositoryIT {
 
         // then
         assertEquals(1, functions.size());
-        assertEquals("Linear", functions.get(0).getNameOfFunction());
+        assertEquals("Linear", functions.get(0).getFunctionType());
     }
 }

@@ -27,7 +27,7 @@ public class PointRepositoryIT {
     public void setup() {
         MathFunctionEntity functionEntity = new MathFunctionEntity();
         functionEntity.setId(1);
-        functionEntity.setNameOfFunction("example_function");
+        functionEntity.setFunctionType("example_function");
         functionEntity.setCount(10);
         functionEntity.setXFrom(0D);
         functionEntity.setXTo(10D);

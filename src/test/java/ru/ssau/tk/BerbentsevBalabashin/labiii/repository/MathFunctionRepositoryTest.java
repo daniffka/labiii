@@ -31,7 +31,7 @@ class MathFunctionRepositoryTest {
         List<MathFunctionEntity> functions = mathFunctionRepository.findByFunctionType("Linear");
 
         assertEquals(1, functions.size());
-        assertEquals("Linear", functions.get(0).getNameOfFunction());
+        assertEquals("Linear", functions.get(0).getFunctionType());
         verify(mathFunctionRepository, times(1)).findByFunctionType("Linear");
     }
 
