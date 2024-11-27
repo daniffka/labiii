@@ -20,7 +20,7 @@ public class MathFunctionEntity {
     private int id;
     @Column(name = "c_name_function")
     @NotNull
-    private String nameOfFunction;
+    private String functionType;
     @Column(name = "c_x_from")
     private int count;
     private Double xFrom;

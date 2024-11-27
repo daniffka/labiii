@@ -14,7 +14,7 @@ class MathFunctionMapperTest {
 
         assertNotNull(dto);
         assertEquals(entity.getId(), dto.getId());
-        assertEquals(entity.getNameOfFunction(), dto.getNameOfFunction());
+        assertEquals(entity.getFunctionType(), dto.getNameOfFunction());
 
         dto = null;
         assertNull(dto);
@@ -27,7 +27,7 @@ class MathFunctionMapperTest {
 
         assertNotNull(entity);
         assertEquals(dto.getId(), entity.getId());
-        assertEquals(dto.getNameOfFunction(), entity.getNameOfFunction());
+        assertEquals(dto.getNameOfFunction(), entity.getFunctionType());
 
         entity = null;
         assertNull(entity);

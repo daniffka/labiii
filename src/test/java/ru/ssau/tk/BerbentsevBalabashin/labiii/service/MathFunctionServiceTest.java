@@ -37,7 +37,7 @@ class MathFunctionServiceTest {
 
         assertNotNull(dtos);
         assertEquals(1, dtos.size());
-        assertEquals(entity.getNameOfFunction(), dtos.get(0).getNameOfFunction());
+        assertEquals(entity.getFunctionType(), dtos.get(0).getNameOfFunction());
     }
 
     @Test
@@ -61,7 +61,7 @@ class MathFunctionServiceTest {
         MathFunctionDTO dto = mathFunctionService.read(1);
 
         assertNotNull(dto);
-        assertEquals(entity.getNameOfFunction(), dto.getNameOfFunction());
+        assertEquals(entity.getFunctionType(), dto.getNameOfFunction());
     }
 
     @Test
