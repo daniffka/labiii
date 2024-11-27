@@ -22,11 +22,11 @@ public class MathFunctionEntity {
     @NotNull
     private String nameOfFunction;
     @Column(name = "c_x_from")
+    private int count;
     private Double xFrom;
     @Column(name = "c_x_to")
     private Double xTo;
     @Column(name = "c_count")
-    private int count;
     @OneToMany(mappedBy = "functionEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PointEntity> points;
 }
