@@ -18,15 +18,20 @@ public class MathFunctionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
+
     @Column(name = "c_name_function")
     @NotNull
     private String functionType;
-    @Column(name = "c_x_from")
+
+    @Column(name = "c_count")
     private int count;
+
+    @Column(name = "c_x_from")
     private Double xFrom;
+
     @Column(name = "c_x_to")
     private Double xTo;
-    @Column(name = "c_count")
+
     @OneToMany(mappedBy = "functionEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PointEntity> points;
 }

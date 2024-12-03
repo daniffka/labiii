@@ -28,10 +28,7 @@ public class MathFunctionRepositoryIT {
 
     @Test
     public void testFindByFunctionType_ReturnsFunctionList() {
-        // when
         List<MathFunctionEntity> functions = this.mathFunctionRepository.findByFunctionType("Linear");
-
-        // then
         assertEquals(1, functions.size());
         assertEquals("Linear", functions.get(0).getFunctionType());
     }

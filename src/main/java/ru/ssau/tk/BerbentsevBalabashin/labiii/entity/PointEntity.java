@@ -18,7 +18,7 @@ public class PointEntity {
     private Double xValue;
     @Column(name = "c_y_value")
     private Double yValue;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "function_id", nullable = false)
     private MathFunctionEntity functionEntity;
 
