@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "labiii.t_function")
+@Table(name = "db_schema.t_function")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
