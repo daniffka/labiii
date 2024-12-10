@@ -29,7 +29,7 @@ class PointRestControllerTest {
     void findAllPoints_PointsExist_ReturnsOk() {
         List<PointDTO> points = List.of(pointDTO);
         when(pointService.findByFunctionEntity(1)).thenReturn(points);
-        ResponseEntity<List<PointDTO>> result = controller.findAllPoints(1);
+        ResponseEntity<List<PointDTO>> result = controller.findByFunctionEntity(1);
         assertEquals(HttpStatus.OK, result.getStatusCode());
         assertEquals(points, result.getBody());
         verify(pointService).findByFunctionEntity(1);
@@ -38,7 +38,7 @@ class PointRestControllerTest {
     @Test
     void findAllPoints_PointsNotFound_ReturnsNotFound() {
         when(pointService.findByFunctionEntity(99)).thenReturn(null);
-        ResponseEntity<List<PointDTO>> result = controller.findAllPoints(99);
+        ResponseEntity<List<PointDTO>> result = controller.findByFunctionEntity(99);
         assertEquals(HttpStatus.NOT_FOUND, result.getStatusCode());
         assertNull(result.getBody());
         verify(pointService).findByFunctionEntity(99);

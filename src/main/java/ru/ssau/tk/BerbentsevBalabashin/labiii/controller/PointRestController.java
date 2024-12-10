@@ -15,7 +15,7 @@ public class PointRestController {
     private final PointService pointService;
 
     @GetMapping("function/{functionId:\\d+}")
-    public ResponseEntity<List<PointDTO>> findAllPoints(@PathVariable int functionId) {
+    public ResponseEntity<List<PointDTO>> findByFunctionEntity(@PathVariable int functionId) {
         List<PointDTO> pointDTOList = this.pointService.findByFunctionEntity(functionId);
         if (pointDTOList == null)
             return ResponseEntity.notFound().build();

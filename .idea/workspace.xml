@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/entity/LabUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/entity/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/MathFunctionRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java" beforeDir="false" />
     </list>
@@ -69,6 +69,7 @@
     &quot;JUnit.PointMapperTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PointRepositoryIT.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PointRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PointRestControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PointServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ReadTaskTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ReadWriteTaskExecutorTest.executor&quot;: &quot;Run&quot;,
@@ -259,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733764792350</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="xy part">
+      <option name="closed" value="true" />
+      <created>1733766070924</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733766070924</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
