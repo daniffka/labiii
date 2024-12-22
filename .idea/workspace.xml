@@ -5,30 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/LabUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/security/DefaultUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/security/JwtAuthTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/security/JwtResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/security/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/security/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/service/DefaultUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/MathFunctionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/MathFunctionRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/entity/MathFunctionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/entity/MathFunctionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/entity/PointEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/entity/PointEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/entity/LabUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/entity/LabUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/sql/test_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/sql/test_schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,10 +60,12 @@
     "JUnit.All in BerbentsevBalabashin-labiii.executor": "Run",
     "JUnit.LinkedListTabulatedFunctionTest.executor": "Run",
     "JUnit.MathFunctionDTOTest.executor": "Run",
+    "JUnit.MathFunctionMapperTest.executor": "Run",
     "JUnit.MathFunctionRepositoryIT.executor": "Run",
     "JUnit.MathFunctionRepositoryIT.testFindByFunctionType_ReturnsFunctionList.executor": "Run",
     "JUnit.MathFunctionRepositoryTest.executor": "Run",
     "JUnit.MathFunctionRestControllerTest.executor": "Run",
+    "JUnit.MultiplyingTaskExecutorTest.executor": "Run",
     "JUnit.PointDTOTest.executor": "Run",
     "JUnit.PointMapperTest.executor": "Run",
     "JUnit.PointRepositoryIT.executor": "Run",
@@ -98,7 +80,7 @@
     "JUnit.dto in BerbentsevBalabashin-labiii.executor": "Run",
     "JUnit.factory in BerbentsevBalabashin-labiii.executor": "Run",
     "JUnit.java in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.labiii in BerbentsevBalabashin-labiii.executor": "Run",
+    "JUnit.labiii in BerbentsevBalabashin-labiii.executor": "Debug",
     "JUnit.repository in BerbentsevBalabashin-labiii.executor": "Run",
     "JUnit.resources in BerbentsevBalabashin-labiii.executor": "Run",
     "JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor": "Run",
@@ -112,39 +94,31 @@
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.java in BerbentsevBalabashin-labiii">
-    <configuration name="All in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BerbentsevBalabashin-labiii" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PointDTOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MathFunctionMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BerbentsevBalabashin-labiii" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.dto.*" />
+          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.dto" />
-      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.dto.PointDTOTest" />
+      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service" />
+      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service.MathFunctionMapperTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PointRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MultiplyingTaskExecutorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BerbentsevBalabashin-labiii" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller.*" />
+          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller" />
-      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller.PointRestControllerTest" />
+      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent" />
+      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent.MultiplyingTaskExecutorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,13 +140,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="labiii in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BerbentsevBalabashin-labiii" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.java in BerbentsevBalabashin-labiii" />
+        <item itemvalue="JUnit.labiii in BerbentsevBalabashin-labiii" />
+        <item itemvalue="JUnit.MultiplyingTaskExecutorTest" />
+        <item itemvalue="JUnit.MathFunctionMapperTest" />
         <item itemvalue="JUnit.concurrent in BerbentsevBalabashin-labiii" />
-        <item itemvalue="JUnit.All in BerbentsevBalabashin-labiii" />
-        <item itemvalue="JUnit.PointRestControllerTest" />
-        <item itemvalue="JUnit.PointDTOTest" />
       </list>
     </recent_temporary>
   </component>
@@ -305,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734379153622</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="xy part">
+      <option name="closed" value="true" />
+      <created>1734875271588</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1734875271588</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

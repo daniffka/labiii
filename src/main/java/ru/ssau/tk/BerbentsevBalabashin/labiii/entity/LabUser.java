@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CollectionIdJdbcTypeCode;
 
 @Entity
-@Table(schema = "db_schema", name = "t_lab_user")
+@Table(name = "db_schema.t_lab_user")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
