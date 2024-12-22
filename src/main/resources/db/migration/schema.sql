@@ -17,4 +17,10 @@ create table db_schema.t_point(
     c_y_value double precision
 
 );
+create table db_schema.t_lab_user(
+    id         serial primary key,
+    c_username varchar(255) not null unique,
+    c_password varchar(255) not null,
+    c_role     varchar(50) not null
+);
 

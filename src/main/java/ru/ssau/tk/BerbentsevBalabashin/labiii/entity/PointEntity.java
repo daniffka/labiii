@@ -1,5 +1,6 @@
 package ru.ssau.tk.BerbentsevBalabashin.labiii.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class PointEntity {
     private Double yValue;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "function_id", nullable = false)
+    @JsonBackReference
     private MathFunctionEntity functionEntity;
 
 }
