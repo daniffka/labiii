@@ -12,9 +12,7 @@ import ru.ssau.tk.BerbentsevBalabashin.labiii.repository.LabUserRepository;
 @Service
 @RequiredArgsConstructor
 public class DefaultUserDetailsService implements UserDetailsService {
-
     private final LabUserRepository userRepository;
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         LabUser user = this.userRepository
