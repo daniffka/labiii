@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/MathFunctionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/MathFunctionRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/security/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/service/DefaultUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/PointRestControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +39,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -91,7 +93,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.java in BerbentsevBalabashin-labiii">
+  <component name="RunManager" selected="JUnit.MathFunctionRestControllerTest">
     <configuration name="All in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BerbentsevBalabashin-labiii" />
       <option name="PACKAGE_NAME" value="" />
@@ -100,31 +102,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MathFunctionMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MathFunctionRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BerbentsevBalabashin-labiii" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service.*" />
+          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service" />
-      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service.MathFunctionMapperTest" />
+      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller" />
+      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller.MathFunctionRestControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiplyingTaskExecutorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PointRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BerbentsevBalabashin-labiii" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent.*" />
+          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent" />
-      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent.MultiplyingTaskExecutorTest" />
+      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller" />
+      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.controller.PointRestControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -148,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MathFunctionRestControllerTest" />
+        <item itemvalue="JUnit.PointRestControllerTest" />
         <item itemvalue="JUnit.java in BerbentsevBalabashin-labiii" />
         <item itemvalue="JUnit.All in BerbentsevBalabashin-labiii" />
         <item itemvalue="JUnit.labiii in BerbentsevBalabashin-labiii" />
-        <item itemvalue="JUnit.MultiplyingTaskExecutorTest" />
-        <item itemvalue="JUnit.MathFunctionMapperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -309,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734967720034</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="xy part">
+      <option name="closed" value="true" />
+      <created>1734968802074</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1734968802074</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
