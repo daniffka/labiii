@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/ChooseСreateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/ChooseСreateFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/DifferentialOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/DifferentialOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/HandlerExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/HandlerExceptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/InputData/CellEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/InputData/Editor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MathFunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MathFunctionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/OperationsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/OperationsWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/TableController.java" afterDir="false" />
-    </list>
+    <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
