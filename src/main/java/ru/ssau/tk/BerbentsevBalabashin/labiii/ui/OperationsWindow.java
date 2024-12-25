@@ -44,9 +44,9 @@ public class OperationsWindow extends JDialog {
         JTable secondFunctionTable = createTable(secondTableModel, true, operand_2);
         resultFunctionTable = createTable(resultTableModel, false, -1);
 
-        JPanel firstFunctionPanel = createFunctionPanel("Первая функция", firstFunctionTable,
+        JPanel firstFunctionPanel = createFunctionPanel("Функция 1", firstFunctionTable,
                 (param)-> createFunction(1), (param) -> loadFunction(1), (param) -> saveFunction(1));
-        JPanel secondFunctionPanel = createFunctionPanel("Вторая функция", secondFunctionTable,
+        JPanel secondFunctionPanel = createFunctionPanel("Функция 2", secondFunctionTable,
                 (param) -> createFunction(2), (param) -> loadFunction(2), (param)-> saveFunction(2));
         JPanel resultFunctionPanel = createResultPanel();
 
@@ -59,7 +59,7 @@ public class OperationsWindow extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(237, 199, 183), 0, getHeight(), new Color(172, 59, 97)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -67,10 +67,10 @@ public class OperationsWindow extends JDialog {
         };
 
         panel.setLayout(new GridLayout(4, 1));
-        JButton sumButton = new RoundedButton("Сложение", new Color(172, 59, 97));
-        JButton subtractButton = new RoundedButton("Вычитание", new Color(172, 59, 97));
-        JButton multiplyButton = new RoundedButton("Умножение", new Color(172, 59, 97));
-        JButton divideButton = new RoundedButton("Деление", new Color(172, 59, 97));
+        JButton sumButton = new RoundedButton("Сложение", new Color(81, 111, 239));
+        JButton subtractButton = new RoundedButton("Вычитание", new Color(81, 111, 239));
+        JButton multiplyButton = new RoundedButton("Умножение", new Color(81, 111, 239));
+        JButton divideButton = new RoundedButton("Деление", new Color(81, 111, 239));
         sumButton.addActionListener((param) -> performOperation(1));
         subtractButton.addActionListener((param)-> performOperation(2));
         multiplyButton.addActionListener((param)-> performOperation(3));
@@ -99,7 +99,7 @@ public class OperationsWindow extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(100, 100, new Color(237, 199, 183), 0, getHeight(), new Color(237, 199, 183));
+                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -118,15 +118,15 @@ public class OperationsWindow extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(100, 100, new Color(237, 199, 183), 0, getHeight(), new Color(237, 199, 183));
+                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         };
-        JButton createButton = new RoundedButton("Создать", new Color(172, 59, 97));
-        JButton loadButton = new RoundedButton("Загрузить", new Color(172, 59, 97));
-        JButton saveButton = new RoundedButton("Сохранить", new Color(172, 59, 97));
+        JButton createButton = new RoundedButton("Создать", new Color(81, 111, 239));
+        JButton loadButton = new RoundedButton("Загрузить", new Color(81, 111, 239));
+        JButton saveButton = new RoundedButton("Сохранить", new Color(81, 111, 239));
         createButton.addActionListener(createListener);
         loadButton.addActionListener(loadListener);
         saveButton.addActionListener(saveListener);
@@ -147,7 +147,7 @@ public class OperationsWindow extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(100, 100, new Color(237, 199, 183), 0, getHeight(), new Color(237, 199, 183));
+                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -157,7 +157,7 @@ public class OperationsWindow extends JDialog {
         panel.setBorder(BorderFactory.createTitledBorder("Результат"));
         JScrollPane scrollPane = new JScrollPane(resultFunctionTable);
         panel.add(scrollPane, BorderLayout.CENTER);
-        JButton saveButton = new RoundedButton("Сохранить", new Color(172, 59, 97));
+        JButton saveButton = new RoundedButton("Сохранить", new Color(81, 111, 239));
         saveButton.addActionListener((param) -> saveFunction(3));
         panel.add(saveButton, BorderLayout.SOUTH);
         return panel;
@@ -308,7 +308,7 @@ public class OperationsWindow extends JDialog {
             setContentAreaFilled(false);
             setFocusPainted(false);
             setForeground(textColor);
-            setBackground(new Color(238, 226, 220));
+            setBackground(new Color(209, 230, 199));
             setFont(new Font("MerriWeather", Font.PLAIN, 16));
         }
     }

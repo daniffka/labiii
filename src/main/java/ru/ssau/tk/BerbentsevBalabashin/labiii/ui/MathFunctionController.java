@@ -45,7 +45,7 @@ public class MathFunctionController extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(237, 199, 183), 0, getHeight(), new Color(172, 59, 97)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -73,7 +73,7 @@ public class MathFunctionController extends JDialog {
         panel.add(pointsCountLabel);
         panel.add(pointsCountField);
 
-        JButton createButton = new RoundedButton("создать", new Color(172, 59, 97));
+        JButton createButton = new RoundedButton("создать", new Color(81, 111, 239));
         createButton.addActionListener(new CreateFunctionListener());
 
         add(panel, BorderLayout.CENTER);
@@ -99,7 +99,7 @@ public class MathFunctionController extends JDialog {
             setFocusPainted(false);
             setForeground(textColor);
             setBackground(new Color(238, 226, 220));
-            setFont(new Font("MerriWeather", Font.PLAIN, 16));
+            setFont(new Font("MerriWeather", Font.PLAIN, 20));
         }
     }
     private class CreateFunctionListener implements ActionListener {
@@ -142,18 +142,4 @@ public class MathFunctionController extends JDialog {
         return tabulatedFunction;
     }
 
-//    public static class Main1 {
-//        public static void main(String[] args) {
-//            // Убедитесь, что Swing компоненты создаются в потоке событий
-//            SwingUtilities.invokeLater(() -> {
-//                // Создаем экземпляр JFrame (родительское окно) для диалога.
-//                JFrame frame = new JFrame();
-//                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//                frame.setVisible(false); // Скрываем главное окно
-//
-//                // Создаем экземпляр TableController
-//                new MathFunctionController(frame, new LinkedListTabulatedFunctionFactory());
-//            });
-//        }
-//    }
 }

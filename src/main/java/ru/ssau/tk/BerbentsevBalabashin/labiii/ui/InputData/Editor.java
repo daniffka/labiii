@@ -5,10 +5,10 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
 
-public class CellEditor extends AbstractCellEditor implements TableCellEditor {
+public class Editor extends AbstractCellEditor implements TableCellEditor {
     private final JTextField textField;
 
-    public CellEditor() {
+    public Editor() {
         textField = new JTextField();
         ((AbstractDocument) textField.getDocument()).setDocumentFilter(new DoubleNumeric());
     }

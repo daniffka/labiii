@@ -7,8 +7,13 @@
     <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/ChooseСreateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/ChooseСreateFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/DifferentialOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/DifferentialOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/HandlerExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/HandlerExceptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/InputData/CellEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/InputData/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MainWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MathFunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MathFunctionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/OperationsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/OperationsWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/TableController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,51 +55,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "Application.BerbentsevBalabashinLabiiiApplication.executor": "Run",
-    "Application.LinkedListTabulatedFunctionSerialization.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.ru.ssau.tk.BerbentsevBalabashin.labiii.BerbentsevBalabashinLabiiiApplication.executor": "Run",
-    "JUnit.AbstractTabulatedFunctionTest.executor": "Run",
-    "JUnit.All in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.LinkedListTabulatedFunctionTest.executor": "Run",
-    "JUnit.MathFunctionDTOTest.executor": "Run",
-    "JUnit.MathFunctionMapperTest.executor": "Run",
-    "JUnit.MathFunctionRepositoryIT.executor": "Run",
-    "JUnit.MathFunctionRepositoryIT.testFindByFunctionType_ReturnsFunctionList.executor": "Run",
-    "JUnit.MathFunctionRepositoryTest.executor": "Run",
-    "JUnit.MathFunctionRestControllerTest.executor": "Run",
-    "JUnit.MultiplyingTaskExecutorTest.executor": "Run",
-    "JUnit.PointDTOTest.executor": "Run",
-    "JUnit.PointMapperTest.executor": "Run",
-    "JUnit.PointRepositoryIT.executor": "Run",
-    "JUnit.PointRepositoryTest.executor": "Run",
-    "JUnit.PointRestControllerTest.executor": "Run",
-    "JUnit.PointServiceTest.executor": "Run",
-    "JUnit.ReadTaskTest.executor": "Run",
-    "JUnit.ReadWriteTaskExecutorTest.executor": "Run",
-    "JUnit.SynchronizedTabulatedFunctionTest.executor": "Run",
-    "JUnit.WriteTaskTest.executor": "Run",
-    "JUnit.concurrent in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.dto in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.factory in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.filter in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.java in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.labiii in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.repository in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.resources in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii.executor": "Run",
-    "JUnit.service in BerbentsevBalabashin-labiii.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Данила/labiii",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BerbentsevBalabashinLabiiiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LinkedListTabulatedFunctionSerialization.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ru.ssau.tk.BerbentsevBalabashin.labiii.BerbentsevBalabashinLabiiiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AbstractTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LinkedListTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MathFunctionDTOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MathFunctionMapperTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MathFunctionRepositoryIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MathFunctionRepositoryIT.testFindByFunctionType_ReturnsFunctionList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MathFunctionRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MathFunctionRestControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MultiplyingTaskExecutorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PointDTOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PointMapperTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PointRepositoryIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PointRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PointRestControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PointServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReadTaskTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReadWriteTaskExecutorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SynchronizedTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WriteTaskTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.concurrent in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.dto in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.factory in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.filter in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.labiii in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.repository in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.resources in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.service in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Данила/labiii&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.ui.Main" />

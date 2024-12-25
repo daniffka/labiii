@@ -20,6 +20,6 @@ public class HandlerExceptions {
     }
 
     public static void showErrorDialog(String message) {
-        JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, message, "Ошибка", JOptionPane.ERROR_MESSAGE);
     }
 }

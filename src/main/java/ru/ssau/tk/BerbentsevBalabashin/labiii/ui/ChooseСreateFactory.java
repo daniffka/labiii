@@ -15,8 +15,8 @@ public class ChooseСreateFactory extends JDialog {
 
     public ChooseСreateFactory(JFrame owner, TabulatedFunctionOperationService factoryService) {
         super(owner, "Настройки", true); // Модальное окно
-        int HEIGHT_DIALOG = 250;
-        int WIDTH_DIALOG = 400;
+        int HEIGHT_DIALOG = 150;
+        int WIDTH_DIALOG = 300;
         setSize(WIDTH_DIALOG, HEIGHT_DIALOG);
         setLocationRelativeTo(null);
 
@@ -29,21 +29,21 @@ public class ChooseСreateFactory extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(237, 199, 183), 0, getHeight(), new Color(172, 59, 97)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         };
 
-        JRadioButton arrayFactoryButton = new JRadioButton("Фабрика на основе массива", factoryService.getFactory() instanceof ArrayTabulatedFunctionFactory);
-        JRadioButton listFactoryButton = new JRadioButton("Фабрика на основе связного списка", factoryService.getFactory() instanceof LinkedListTabulatedFunctionFactory);
+        JRadioButton arrayFactoryButton = new JRadioButton("Фабрика (массив))", factoryService.getFactory() instanceof ArrayTabulatedFunctionFactory);
+        JRadioButton listFactoryButton = new JRadioButton("Фабрика (связный список))", factoryService.getFactory() instanceof LinkedListTabulatedFunctionFactory);
 
         ButtonGroup group = new ButtonGroup();
         group.add(arrayFactoryButton);
         group.add(listFactoryButton);
 
-        JButton saveButton = new JButton("Сохранить");
+        JButton saveButton = new JButton("Сохранить изменения");
         saveButton.addActionListener((param) -> {
             if (arrayFactoryButton.isSelected()) {
                 factoryService.setFactory(new ArrayTabulatedFunctionFactory());
@@ -56,7 +56,6 @@ public class ChooseСreateFactory extends JDialog {
         gradientPanel.add(arrayFactoryButton);
         gradientPanel.add(listFactoryButton);
         gradientPanel.add(saveButton);
-
         add(gradientPanel);
 
         addWindowListener(new WindowAdapter() {

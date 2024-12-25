@@ -33,7 +33,7 @@ public class TableController extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(237, 199, 183), 0, getHeight(), new Color(172, 59, 97)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -44,7 +44,7 @@ public class TableController extends JDialog {
         gradientPanel.setLayout(new FlowLayout());
         JLabel pointCountLabel = new JLabel("Количество точек:");
         pointCount = new JTextField(10);
-        JButton createTableButton = new RoundedButton("добавить", new Color(172, 59, 97));
+        JButton createTableButton = new RoundedButton("добавить", new Color(81, 111, 239));
         gradientPanel.add(pointCountLabel);
         gradientPanel.add(pointCount);
         gradientPanel.add(createTableButton);
@@ -56,7 +56,7 @@ public class TableController extends JDialog {
         tablePanel.setLayout(new BorderLayout());
         tablePanel.add(scrollPane, BorderLayout.CENTER);
 
-        JButton createFunctionButton = new RoundedButton("Создать", new Color(172, 59, 97));
+        JButton createFunctionButton = new RoundedButton("Создать", new Color(81, 111, 239));
         JPanel buttonPanel = new JPanel(){
             @Override
             protected void paintComponent(Graphics g) {
@@ -66,7 +66,7 @@ public class TableController extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(237, 199, 183), 0, getHeight(), new Color(172, 59, 97)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -115,16 +115,16 @@ public class TableController extends JDialog {
 
             for (int i = 1; i < rowCount; i++) {
                 if (xValues[i] <= xValues[i - 1]) {
-                    JOptionPane.showMessageDialog(this, "X должен увеличиваться!", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "X должен увеличиваться!", "Ошибка!", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
 
             tabulatedFunction = factory.create(xValues, yValues);
-            JOptionPane.showMessageDialog(this, "Функция создана!", "Victory!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Функция создана!", "Победа!", JOptionPane.INFORMATION_MESSAGE);
             dispose();
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Введите корректное значение точек!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Введите корректное значение точек!", "Ошибка", JOptionPane.ERROR_MESSAGE);
         }
     }
 
