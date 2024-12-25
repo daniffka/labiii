@@ -1,0 +1,15 @@
+Index: src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ru.ssau.tk.BerbentsevBalabashin.labiii.repository;\r\nimport org.junit.jupiter.api.BeforeEach;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;\r\nimport org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;\r\nimport org.springframework.test.context.jdbc.Sql;\r\nimport org.springframework.transaction.annotation.Transactional;\r\nimport ru.ssau.tk.BerbentsevBalabashin.labiii.entity.MathFunctionEntity;\r\nimport java.util.List;\r\nimport static org.junit.jupiter.api.Assertions.*;\r\n\r\n@DataJpaTest\r\n@Sql(scripts = {\"/sql/test_schema.sql\", \"/sql/math_functions.sql\"})\r\n@Transactional\r\n@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)\r\npublic class MathFunctionRepositoryIT {\r\n\r\n    @Autowired\r\n    private MathFunctionRepository mathFunctionRepository;\r\n\r\n    @BeforeEach\r\n    public void setup() {\r\n        MathFunctionEntity function = new MathFunctionEntity();\r\n        function.setFunctionType(\"Linear\");\r\n        this.mathFunctionRepository.save(function);\r\n    }\r\n\r\n    @Test\r\n    public void testFindByFunctionType_ReturnsFunctionList() {\r\n        List<MathFunctionEntity> functions = this.mathFunctionRepository.findByFunctionType(\"Linear\");\r\n        assertEquals(1, functions.size());\r\n        assertEquals(\"Linear\", functions.get(0).getFunctionType());\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java b/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java
+--- a/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java	(revision d587e14bb8c73fcac445abd9281dac6f312c98fe)
++++ b/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java	(date 1734636751774)
+@@ -32,4 +32,4 @@
+         assertEquals(1, functions.size());
+         assertEquals("Linear", functions.get(0).getFunctionType());
+     }
+-}
++}
+\ No newline at end of file
