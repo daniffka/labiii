@@ -1,0 +1,316 @@
+Index: src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java
+===================================================================
+diff --git a/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java b/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java
+deleted file mode 100644
+--- a/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java	(revision f57a5457d4db4c0d15b0fb2b345fc1d75491131f)
++++ /dev/null	(revision f57a5457d4db4c0d15b0fb2b345fc1d75491131f)
+@@ -1,35 +0,0 @@
+-package ru.ssau.tk.BerbentsevBalabashin.labiii.repository;
+-import org.junit.jupiter.api.BeforeEach;
+-import org.junit.jupiter.api.Test;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+-import org.springframework.test.context.jdbc.Sql;
+-import org.springframework.transaction.annotation.Transactional;
+-import ru.ssau.tk.BerbentsevBalabashin.labiii.entity.MathFunctionEntity;
+-import java.util.List;
+-import static org.junit.jupiter.api.Assertions.*;
+-
+-@DataJpaTest
+-@Sql(scripts = {"/sql/test_schema.sql", "/sql/math_functions.sql"})
+-@Transactional
+-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+-public class MathFunctionRepositoryIT {
+-
+-    @Autowired
+-    private MathFunctionRepository mathFunctionRepository;
+-
+-    @BeforeEach
+-    public void setup() {
+-        MathFunctionEntity function = new MathFunctionEntity();
+-        function.setFunctionType("Linear");
+-        this.mathFunctionRepository.save(function);
+-    }
+-
+-    @Test
+-    public void testFindByFunctionType_ReturnsFunctionList() {
+-        List<MathFunctionEntity> functions = this.mathFunctionRepository.findByFunctionType("Linear");
+-        assertEquals(1, functions.size());
+-        assertEquals("Linear", functions.get(0).getFunctionType());
+-    }
+-}
+Index: src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java
+===================================================================
+diff --git a/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java b/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java
+deleted file mode 100644
+--- a/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java	(revision f57a5457d4db4c0d15b0fb2b345fc1d75491131f)
++++ /dev/null	(revision f57a5457d4db4c0d15b0fb2b345fc1d75491131f)
+@@ -1,51 +0,0 @@
+-package ru.ssau.tk.BerbentsevBalabashin.labiii.repository;
+-import org.junit.jupiter.api.BeforeEach;
+-import org.junit.jupiter.api.Test;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+-import org.springframework.test.context.jdbc.Sql;
+-import org.springframework.transaction.annotation.Transactional;
+-import ru.ssau.tk.BerbentsevBalabashin.labiii.entity.MathFunctionEntity;
+-import ru.ssau.tk.BerbentsevBalabashin.labiii.entity.PointEntity;
+-import java.util.List;
+-import static org.junit.jupiter.api.Assertions.*;
+-
+-@DataJpaTest
+-@Sql(scripts = {"/sql/test_schema.sql", "/sql/points.sql"})
+-@Transactional
+-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+-public class PointRepositoryIT {
+-
+-    @Autowired
+-    private PointRepository pointRepository;
+-
+-    @Autowired
+-    private MathFunctionRepository mathFunctionRepository;
+-
+-    @BeforeEach
+-    public void setup() {
+-        MathFunctionEntity functionEntity = new MathFunctionEntity();
+-        functionEntity.setId(1);
+-        functionEntity.setFunctionType("example_function");
+-        functionEntity.setCount(10);
+-        functionEntity.setXFrom(0D);
+-        functionEntity.setXTo(10D);
+-        mathFunctionRepository.save(functionEntity);
+-
+-        PointEntity pointEntity = new PointEntity();
+-        pointEntity.setId(1);
+-        pointEntity.setFunctionEntity(functionEntity);
+-        pointEntity.setXValue(0D);
+-        pointEntity.setYValue(0D);
+-        pointRepository.save(pointEntity);
+-    }
+-
+-    @Test
+-    public void testFindByFunctionEntity_ReturnsFilteredPointsList() {
+-        MathFunctionEntity functionEntity = mathFunctionRepository.findById(1).orElseThrow();
+-        List<PointEntity> points = pointRepository.findByFunctionEntity(functionEntity);
+-        assertEquals(1, points.size());
+-        assertEquals(1, points.get(0).getId());
+-    }
+-}
+\ No newline at end of file
+Index: src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/service/MathFunctionServiceTest.java
+===================================================================
+diff --git a/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/service/MathFunctionServiceTest.java b/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/service/MathFunctionServiceTest.java
+deleted file mode 100644
+--- a/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/service/MathFunctionServiceTest.java	(revision f57a5457d4db4c0d15b0fb2b345fc1d75491131f)
++++ /dev/null	(revision f57a5457d4db4c0d15b0fb2b345fc1d75491131f)
+@@ -1,85 +0,0 @@
+-package ru.ssau.tk.BerbentsevBalabashin.labiii.service;
+-import org.junit.jupiter.api.BeforeEach;
+-import org.junit.jupiter.api.Test;
+-import org.mockito.InjectMocks;
+-import org.mockito.Mock;
+-import org.mockito.MockitoAnnotations;
+-import java.util.Arrays;
+-import java.util.List;
+-import java.util.Optional;
+-
+-import static org.junit.jupiter.api.Assertions.*;
+-import static org.mockito.Mockito.*;
+-import ru.ssau.tk.BerbentsevBalabashin.labiii.entity.MathFunctionEntity;
+-import ru.ssau.tk.BerbentsevBalabashin.labiii.repository.MathFunctionRepository;
+-import ru.ssau.tk.BerbentsevBalabashin.labiii.dto.MathFunctionDTO;
+-
+-
+-class MathFunctionServiceTest {
+-
+-    @Mock
+-    private MathFunctionRepository mathFunctionRepository;
+-
+-    @InjectMocks
+-    private MathFunctionService mathFunctionService;
+-
+-    @BeforeEach
+-    void setUp() {
+-        MockitoAnnotations.openMocks(this);
+-    }
+-
+-    @Test
+-    void testGetByFunctionType() {
+-        MathFunctionEntity entity = new MathFunctionEntity(1, "linear", 10, 0.0, 10.0, null);
+-        when(mathFunctionRepository.findByFunctionType("linear")).thenReturn(Arrays.asList(entity));
+-
+-        List<MathFunctionDTO> dtos = mathFunctionService.getByFunctionType("linear");
+-
+-        assertNotNull(dtos);
+-        assertEquals(1, dtos.size());
+-        assertEquals(entity.getFunctionType(), dtos.get(0).getNameOfFunction());
+-    }
+-
+-    @Test
+-    void testCreate() {
+-        MathFunctionDTO dto = new MathFunctionDTO(1, "linear", 10, 0.0, 10.0, null);
+-        MathFunctionEntity entity = new MathFunctionEntity(1, "linear", 10, 0.0, 10.0, null);
+-        when(mathFunctionRepository.save(any())).thenReturn(entity);
+-
+-        MathFunctionDTO createdDto = mathFunctionService.create(dto);
+-
+-        assertNotNull(createdDto);
+-        assertEquals(dto.getNameOfFunction(), createdDto.getNameOfFunction());
+-        verify(mathFunctionRepository).save(any());
+-    }
+-
+-    @Test
+-    void testRead() {
+-        MathFunctionEntity entity = new MathFunctionEntity(1, "linear", 10, 0.0, 10.0, null);
+-        when(mathFunctionRepository.findById(1)).thenReturn(Optional.of(entity));
+-
+-        MathFunctionDTO dto = mathFunctionService.read(1);
+-
+-        assertNotNull(dto);
+-        assertEquals(entity.getFunctionType(), dto.getNameOfFunction());
+-    }
+-
+-    @Test
+-    void testUpdate() {
+-        MathFunctionDTO dto = new MathFunctionDTO(1, "linear", 10, 0.0, 10.0, null);
+-        MathFunctionEntity entity = new MathFunctionEntity(1, "linear", 10, 0.0, 10.0, null);
+-        when(mathFunctionRepository.save(any())).thenReturn(entity);
+-
+-        MathFunctionDTO updatedDto = mathFunctionService.update(dto);
+-
+-        assertNotNull(updatedDto);
+-        assertEquals(dto.getNameOfFunction(), updatedDto.getNameOfFunction());
+-        verify(mathFunctionRepository).save(any());
+-    }
+-
+-    @Test
+-    void testDelete() {
+-        mathFunctionService.delete(1);
+-        verify(mathFunctionRepository).deleteById(1);
+-    }
+-}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d5711bb1-92da-4e03-9f67-3aefb2974875\" name=\"Changes\" comment=\"xy part\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;daniffka&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/daniffka/labiii.git\",\r\n    \"accountId\": \"87c31174-83d8-4fcd-93b7-ca87b0484634\"\r\n  }\r\n}]]></component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2p9Bkg811PMgjmVCQh9KqlA9pLF\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Application.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.BerbentsevBalabashinLabiiiApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.LinkedListTabulatedFunctionSerialization.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.ru.ssau.tk.BerbentsevBalabashin.labiii.BerbentsevBalabashinLabiiiApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.AbstractTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.All in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.LinkedListTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.MathFunctionDTOTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.MathFunctionRepositoryIT.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.MathFunctionRepositoryTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.PointDTOTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.PointMapperTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.PointRepositoryIT.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.PointRepositoryTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.PointServiceTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.ReadTaskTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.ReadWriteTaskExecutorTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.SynchronizedTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.WriteTaskTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.concurrent in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.dto in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.factory in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.java in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.labiii in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.repository in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.resources in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.service in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"JUnit.dto in BerbentsevBalabashin-labiii\">\r\n    <configuration name=\"PointServiceTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.service.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.service\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.service.PointServiceTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ReadWriteTaskExecutorTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent.ReadWriteTaskExecutorTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"concurrent in BerbentsevBalabashin-labiii\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/concurrent\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"dto in BerbentsevBalabashin-labiii\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/dto\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"service in BerbentsevBalabashin-labiii\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/service\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.dto in BerbentsevBalabashin-labiii\" />\r\n        <item itemvalue=\"JUnit.service in BerbentsevBalabashin-labiii\" />\r\n        <item itemvalue=\"JUnit.PointServiceTest\" />\r\n        <item itemvalue=\"JUnit.ReadWriteTaskExecutorTest\" />\r\n        <item itemvalue=\"JUnit.concurrent in BerbentsevBalabashin-labiii\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d5711bb1-92da-4e03-9f67-3aefb2974875\" name=\"Changes\" comment=\"\" />\r\n      <created>1732168556179</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1732168556179</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732471482950</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732471482950</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732556051882</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732556051882</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732556177207</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732556177207</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732566602612</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732566602612</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732636571626</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732636571626</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732637403981</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732637403981</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732640590402</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732640590402</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732641083109</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732641083109</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732700478112</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732700478112</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732700865779</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732700865779</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"11\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"xy part\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"xy part\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f57a5457d4db4c0d15b0fb2b345fc1d75491131f)
++++ b/.idea/workspace.xml	(date 1734633302156)
+@@ -6,7 +6,9 @@
+   <component name="ChangeListManager">
+     <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/service/MathFunctionServiceTest.java" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -30,12 +32,12 @@
+     &quot;assignee&quot;: &quot;daniffka&quot;
+   }
+ }</component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "https://github.com/daniffka/labiii.git",
+-    "accountId": "87c31174-83d8-4fcd-93b7-ca87b0484634"
+-  }
+-}]]></component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/daniffka/labiii.git&quot;,
++    &quot;accountId&quot;: &quot;87c31174-83d8-4fcd-93b7-ca87b0484634&quot;
++  }
++}</component>
+   <component name="ProblemsViewState">
+     <option name="selectedTabId" value="CurrentFile" />
+   </component>
+@@ -85,49 +87,46 @@
+     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+   }
+ }</component>
+-  <component name="RunManager" selected="JUnit.dto in BerbentsevBalabashin-labiii">
+-    <configuration name="PointServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++  <component name="RunManager" selected="Application.Application">
++    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.Application" />
+       <module name="BerbentsevBalabashin-labiii" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service.*" />
++          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+-      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service" />
+-      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.service.PointServiceTest" />
+-      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="ReadWriteTaskExecutorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="dto in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="BerbentsevBalabashin-labiii" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent" />
+-      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.concurrent.ReadWriteTaskExecutorTest" />
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="TEST_OBJECT" value="directory" />
++      <dir value="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/dto" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="concurrent in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="java in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="BerbentsevBalabashin-labiii" />
+       <option name="TEST_OBJECT" value="directory" />
+-      <dir value="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/concurrent" />
++      <dir value="$PROJECT_DIR$/src/test/java" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="dto in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="BerbentsevBalabashin-labiii" />
+-      <option name="TEST_OBJECT" value="directory" />
+-      <dir value="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/dto" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii" />
++      <option name="TEST_OBJECT" value="package" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -142,11 +141,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.Application" />
++        <item itemvalue="JUnit.java in BerbentsevBalabashin-labiii" />
++        <item itemvalue="JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii" />
+         <item itemvalue="JUnit.dto in BerbentsevBalabashin-labiii" />
+         <item itemvalue="JUnit.service in BerbentsevBalabashin-labiii" />
+-        <item itemvalue="JUnit.PointServiceTest" />
+-        <item itemvalue="JUnit.ReadWriteTaskExecutorTest" />
+-        <item itemvalue="JUnit.concurrent in BerbentsevBalabashin-labiii" />
+       </list>
+     </recent_temporary>
+   </component>

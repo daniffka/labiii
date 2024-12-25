@@ -1,0 +1,242 @@
+Index: src/test/resources/sql/test_schema.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>create schema if not exists db_schema;\r\n\r\ncreate table db_schema.t_function(\r\n    id serial primary key,\r\n    c_name_function varchar(255),\r\n    c_count integer check (c_count>=2),\r\n    c_x_from double precision,\r\n    c_x_to double precision\r\n\r\n);\r\ncreate table db_schema.t_point(\r\n    id serial primary key,\r\n    function_id integer references db_schema.t_function(id),\r\n     c_x_value double precision,\r\n     c_y_value double precision,\r\n);
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/sql/test_schema.sql b/src/test/resources/sql/test_schema.sql
+--- a/src/test/resources/sql/test_schema.sql	(revision d587e14bb8c73fcac445abd9281dac6f312c98fe)
++++ b/src/test/resources/sql/test_schema.sql	(date 1734639077304)
+@@ -11,6 +11,6 @@
+ create table db_schema.t_point(
+     id serial primary key,
+     function_id integer references db_schema.t_function(id),
+-     c_x_value double precision,
+-     c_y_value double precision,
++    c_x_value double precision,
++    c_y_value double precision
+ );
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n\txsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n\t<modelVersion>4.0.0</modelVersion>\r\n\t<parent>\r\n\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t<artifactId>spring-boot-starter-parent</artifactId>\r\n\t\t<version>3.3.5</version>\r\n\t\t<relativePath/> <!-- lookup parent from repository -->\r\n\t</parent>\r\n\t<groupId>ru.ssau.tk.BerbentsevBalabashin.labiii</groupId>\r\n\t<artifactId>BerbentsevBalabashin-labiii</artifactId>\r\n\t<version>0.0.1-SNAPSHOT</version>\r\n\t<name>BerbentsevBalabashin-labiii</name>\r\n\t<description>labiii</description>\r\n\t<url/>\r\n\t<licenses>\r\n\t\t<license/>\r\n\t</licenses>\r\n\t<developers>\r\n\t\t<developer/>\r\n\t</developers>\r\n\t<scm>\r\n\t\t<connection/>\r\n\t\t<developerConnection/>\r\n\t\t<tag/>\r\n\t\t<url/>\r\n\t</scm>\r\n\t<properties>\r\n\t\t<java.version>21</java.version>\r\n\t</properties>\r\n\t<dependencies>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-data-jpa</artifactId>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-validation</artifactId>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-web</artifactId>\r\n\t\t</dependency>\r\n\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.postgresql</groupId>\r\n\t\t\t<artifactId>postgresql</artifactId>\r\n\t\t\t<scope>runtime</scope>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.projectlombok</groupId>\r\n\t\t\t<artifactId>lombok</artifactId>\r\n\t\t\t<optional>true</optional>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-test</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-testcontainers</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.testcontainers</groupId>\r\n\t\t\t<artifactId>junit-jupiter</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.testcontainers</groupId>\r\n\t\t\t<artifactId>postgresql</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\t</dependencies>\r\n\r\n\t<build>\r\n\t\t<plugins>\r\n\t\t\t<plugin>\r\n\t\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t\t<artifactId>spring-boot-maven-plugin</artifactId>\r\n\t\t\t\t<configuration>\r\n\t\t\t\t\t<excludes>\r\n\t\t\t\t\t\t<exclude>\r\n\t\t\t\t\t\t\t<groupId>org.projectlombok</groupId>\r\n\t\t\t\t\t\t\t<artifactId>lombok</artifactId>\r\n\t\t\t\t\t\t</exclude>\r\n\t\t\t\t\t</excludes>\r\n\t\t\t\t</configuration>\r\n\t\t\t</plugin>\r\n\t\t</plugins>\r\n\t</build>\r\n\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision d587e14bb8c73fcac445abd9281dac6f312c98fe)
++++ b/pom.xml	(date 1734704295344)
+@@ -73,6 +73,12 @@
+ 			<artifactId>postgresql</artifactId>
+ 			<scope>test</scope>
+ 		</dependency>
++
++		<dependency>
++			<groupId>org.springframework.boot</groupId>
++			<artifactId>spring-boot-starter-security</artifactId>
++		</dependency>
++
+ 	</dependencies>
+ 
+ 	<build>
+Index: src/main/resources/db/migration/schema.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>create schema if not exists db_schema;\r\n\r\ncreate table db_schema.t_function(\r\n    id serial primary key,\r\n    c_name_function varchar(255),\r\n    c_count integer check (c_count>=2),\r\n    c_x_from double precision,\r\n    c_x_to double precision\r\n\r\n);\r\n\r\ncreate table db_schema.t_point(\r\n    id serial primary key,\r\n    function_id integer,\r\n    foreign key (function_id) references db_schema.t_function(id) on delete cascade,\r\n    c_x_value double precision,\r\n    c_y_value double precision\r\n\r\n);\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/db/migration/schema.sql b/src/main/resources/db/migration/schema.sql
+--- a/src/main/resources/db/migration/schema.sql	(revision d587e14bb8c73fcac445abd9281dac6f312c98fe)
++++ b/src/main/resources/db/migration/schema.sql	(date 1734639347368)
+@@ -6,7 +6,6 @@
+     c_count integer check (c_count>=2),
+     c_x_from double precision,
+     c_x_to double precision
+-
+ );
+ 
+ create table db_schema.t_point(
+@@ -15,6 +14,4 @@
+     foreign key (function_id) references db_schema.t_function(id) on delete cascade,
+     c_x_value double precision,
+     c_y_value double precision
+-
+ );
+-
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d5711bb1-92da-4e03-9f67-3aefb2974875\" name=\"Changes\" comment=\"xy part\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/AuthController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/MathFunctionRestControllerTest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;daniffka&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/daniffka/labiii.git&quot;,\r\n    &quot;accountId&quot;: &quot;87c31174-83d8-4fcd-93b7-ca87b0484634&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2p9Bkg811PMgjmVCQh9KqlA9pLF\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Application.executor\": \"Run\",\r\n    \"Application.BerbentsevBalabashinLabiiiApplication.executor\": \"Run\",\r\n    \"Application.LinkedListTabulatedFunctionSerialization.executor\": \"Run\",\r\n    \"Application.ru.ssau.tk.BerbentsevBalabashin.labiii.BerbentsevBalabashinLabiiiApplication.executor\": \"Run\",\r\n    \"JUnit.AbstractTabulatedFunctionTest.executor\": \"Run\",\r\n    \"JUnit.All in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.LinkedListTabulatedFunctionTest.executor\": \"Run\",\r\n    \"JUnit.MathFunctionDTOTest.executor\": \"Run\",\r\n    \"JUnit.MathFunctionRepositoryIT.executor\": \"Run\",\r\n    \"JUnit.MathFunctionRepositoryIT.testFindByFunctionType_ReturnsFunctionList.executor\": \"Run\",\r\n    \"JUnit.MathFunctionRepositoryTest.executor\": \"Run\",\r\n    \"JUnit.MathFunctionRestControllerTest.executor\": \"Run\",\r\n    \"JUnit.PointDTOTest.executor\": \"Run\",\r\n    \"JUnit.PointMapperTest.executor\": \"Run\",\r\n    \"JUnit.PointRepositoryIT.executor\": \"Run\",\r\n    \"JUnit.PointRepositoryTest.executor\": \"Run\",\r\n    \"JUnit.PointRestControllerTest.executor\": \"Run\",\r\n    \"JUnit.PointServiceTest.executor\": \"Run\",\r\n    \"JUnit.ReadTaskTest.executor\": \"Run\",\r\n    \"JUnit.ReadWriteTaskExecutorTest.executor\": \"Run\",\r\n    \"JUnit.SynchronizedTabulatedFunctionTest.executor\": \"Run\",\r\n    \"JUnit.WriteTaskTest.executor\": \"Run\",\r\n    \"JUnit.concurrent in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.dto in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.factory in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.java in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.labiii in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.repository in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.resources in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"JUnit.service in BerbentsevBalabashin-labiii.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"settings.editor.selected.configurable\": \"vcs.Git\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"JUnit.MathFunctionRestControllerTest\">\r\n    <configuration name=\"MathFunctionRestControllerTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.controller.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.controller\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.controller.MathFunctionRestControllerTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"PointRestControllerTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.controller.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.controller\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.controller.PointRestControllerTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"java in BerbentsevBalabashin-labiii\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"repository in BerbentsevBalabashin-labiii\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"BerbentsevBalabashin-labiii\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.entity.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"ru.ssau.tk.BerbentsevBalabashin.labiii.entity\" />\r\n      <option name=\"TEST_OBJECT\" value=\"package\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.MathFunctionRestControllerTest\" />\r\n        <item itemvalue=\"JUnit.PointRestControllerTest\" />\r\n        <item itemvalue=\"JUnit.java in BerbentsevBalabashin-labiii\" />\r\n        <item itemvalue=\"JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii\" />\r\n        <item itemvalue=\"JUnit.repository in BerbentsevBalabashin-labiii\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d5711bb1-92da-4e03-9f67-3aefb2974875\" name=\"Changes\" comment=\"\" />\r\n      <created>1732168556179</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1732168556179</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732471482950</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732471482950</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732556051882</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732556051882</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732556177207</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732556177207</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732566602612</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732566602612</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732636571626</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732636571626</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732637403981</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732637403981</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732640590402</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732640590402</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732641083109</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732641083109</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732700478112</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732700478112</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732700865779</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732700865779</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1733249982363</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1733249982363</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1733764792350</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1733764792350</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1733766070924</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1733766070924</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"xy part\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1733863445070</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1733863445071</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"15\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"xy part\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"xy part\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d587e14bb8c73fcac445abd9281dac6f312c98fe)
++++ b/.idea/workspace.xml	(date 1734886016313)
+@@ -5,11 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/AuthController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/controller/MathFunctionRestControllerTest.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/PointRepositoryIT.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/schema.sql" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository/MathFunctionRepositoryIT.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/sql/test_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/sql/test_schema.sql" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -51,47 +51,60 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.Application.executor": "Run",
+-    "Application.BerbentsevBalabashinLabiiiApplication.executor": "Run",
+-    "Application.LinkedListTabulatedFunctionSerialization.executor": "Run",
+-    "Application.ru.ssau.tk.BerbentsevBalabashin.labiii.BerbentsevBalabashinLabiiiApplication.executor": "Run",
+-    "JUnit.AbstractTabulatedFunctionTest.executor": "Run",
+-    "JUnit.All in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.LinkedListTabulatedFunctionTest.executor": "Run",
+-    "JUnit.MathFunctionDTOTest.executor": "Run",
+-    "JUnit.MathFunctionRepositoryIT.executor": "Run",
+-    "JUnit.MathFunctionRepositoryIT.testFindByFunctionType_ReturnsFunctionList.executor": "Run",
+-    "JUnit.MathFunctionRepositoryTest.executor": "Run",
+-    "JUnit.MathFunctionRestControllerTest.executor": "Run",
+-    "JUnit.PointDTOTest.executor": "Run",
+-    "JUnit.PointMapperTest.executor": "Run",
+-    "JUnit.PointRepositoryIT.executor": "Run",
+-    "JUnit.PointRepositoryTest.executor": "Run",
+-    "JUnit.PointRestControllerTest.executor": "Run",
+-    "JUnit.PointServiceTest.executor": "Run",
+-    "JUnit.ReadTaskTest.executor": "Run",
+-    "JUnit.ReadWriteTaskExecutorTest.executor": "Run",
+-    "JUnit.SynchronizedTabulatedFunctionTest.executor": "Run",
+-    "JUnit.WriteTaskTest.executor": "Run",
+-    "JUnit.concurrent in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.dto in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.factory in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.java in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.labiii in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.repository in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.resources in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii.executor": "Run",
+-    "JUnit.service in BerbentsevBalabashin-labiii.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "master",
+-    "kotlin-language-version-configured": "true",
+-    "settings.editor.selected.configurable": "vcs.Git"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
++    &quot;Application.BerbentsevBalabashinLabiiiApplication.executor&quot;: &quot;Run&quot;,
++    &quot;Application.LinkedListTabulatedFunctionSerialization.executor&quot;: &quot;Run&quot;,
++    &quot;Application.ru.ssau.tk.BerbentsevBalabashin.labiii.BerbentsevBalabashinLabiiiApplication.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.AbstractTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.All in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.LinkedListTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.MathFunctionDTOTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.MathFunctionRepositoryIT.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.MathFunctionRepositoryIT.testFindByFunctionType_ReturnsFunctionList.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.MathFunctionRepositoryTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.MathFunctionRestControllerTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PointDTOTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PointMapperTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PointRepositoryIT.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PointRepositoryTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PointRestControllerTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PointServiceTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.ReadTaskTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.ReadWriteTaskExecutorTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.SynchronizedTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.WriteTaskTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.concurrent in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.dto in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.factory in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.java in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.labiii in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.repository in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.resources in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.service in BerbentsevBalabashin-labiii.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+   }
+-}]]></component>
+-  <component name="RunManager" selected="JUnit.MathFunctionRestControllerTest">
++}</component>
++  <component name="RunManager" selected="JUnit.java in BerbentsevBalabashin-labiii">
++    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="ru.ssau.tk.BerbentsevBalabashin.labiii.Application" />
++      <module name="BerbentsevBalabashin-labiii" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="ru.ssau.tk.BerbentsevBalabashin.labiii.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="MathFunctionRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="BerbentsevBalabashin-labiii" />
+       <extension name="coverage">
+@@ -130,14 +143,6 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="repository in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="BerbentsevBalabashin-labiii" />
+-      <option name="TEST_OBJECT" value="directory" />
+-      <dir value="$PROJECT_DIR$/src/test/java/ru/ssau/tk/BerbentsevBalabashin/labiii/repository" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+     <configuration name="ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="BerbentsevBalabashin-labiii" />
+       <extension name="coverage">
+@@ -154,11 +159,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="JUnit.java in BerbentsevBalabashin-labiii" />
++        <item itemvalue="Application.Application" />
+         <item itemvalue="JUnit.MathFunctionRestControllerTest" />
+         <item itemvalue="JUnit.PointRestControllerTest" />
+-        <item itemvalue="JUnit.java in BerbentsevBalabashin-labiii" />
+         <item itemvalue="JUnit.ru.ssau.tk.BerbentsevBalabashin.labiii.entity in BerbentsevBalabashin-labiii" />
+-        <item itemvalue="JUnit.repository in BerbentsevBalabashin-labiii" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -285,6 +290,17 @@
+     </task>
+     <option name="localTasksCounter" value="15" />
+     <servers />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="xy part" />
