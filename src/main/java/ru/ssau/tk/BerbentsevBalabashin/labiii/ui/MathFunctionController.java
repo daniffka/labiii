@@ -5,6 +5,7 @@ import ru.ssau.tk.BerbentsevBalabashin.labiii.functions.*;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.ui.InputData.DoubleNumeric;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.ui.InputData.IntNumeric;
 import ru.ssau.tk.BerbentsevBalabashin.labiii.functions.TabulatedFunction;
+import ru.ssau.tk.BerbentsevBalabashin.labiii.ui.NewFunctoins.*;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
@@ -86,6 +87,9 @@ public class MathFunctionController extends JDialog {
         map.put("Тождественная функция", new IdentityFunction());
         map.put("Функция константы 0", new ZeroFunction());
         map.put("Функция константы 1", new UnitFunction());
+        map.put("Синус", new SinFunction());
+        map.put("Косинус", new CosFunction());
+        map.put("Тангенс", new TgFunction());
         return map;
     }
     public static class RoundedButton extends JButton {

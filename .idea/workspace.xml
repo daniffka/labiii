@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5711bb1-92da-4e03-9f67-3aefb2974875" name="Changes" comment="xy part">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/ChooseСreateFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/DifferentialOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/HandlerExceptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/InputData/CellEditor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/InputData/DoubleNumeric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/InputData/IntNumeric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MainWindowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MathFunctionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/NewFunctoins/CosFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/NewFunctoins/SinFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/NewFunctoins/TgFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/OperationsWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/TableController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/ChooseСreateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/ChooseСreateFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MathFunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/MathFunctionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/OperationsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ssau/tk/BerbentsevBalabashin/labiii/ui/OperationsWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -362,7 +350,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734978143265</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="xy part">
+      <option name="closed" value="true" />
+      <created>1735073690618</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1735073690618</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

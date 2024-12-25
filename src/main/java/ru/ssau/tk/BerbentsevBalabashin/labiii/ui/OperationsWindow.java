@@ -231,7 +231,7 @@ public class OperationsWindow extends JDialog {
     }
 
     private void createFunction(int operand){
-        TabulatedFunctionFactory selectedFactory = operationService. getFactory();
+        TabulatedFunctionFactory selectedFactory = operationService.getFactory();
 
         TabulatedFunction createdFunction = null;
 

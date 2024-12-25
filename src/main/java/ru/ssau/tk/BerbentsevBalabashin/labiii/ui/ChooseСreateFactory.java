@@ -12,11 +12,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class ChooseСreateFactory extends JDialog {
-    private final int WIDTH_DIALOG = 400;
-    private final int HEIGHT_DIALOG = 250;
 
     public ChooseСreateFactory(JFrame owner, TabulatedFunctionOperationService factoryService) {
         super(owner, "Настройки", true); // Модальное окно
+        int HEIGHT_DIALOG = 250;
+        int WIDTH_DIALOG = 400;
         setSize(WIDTH_DIALOG, HEIGHT_DIALOG);
         setLocationRelativeTo(null);
 
