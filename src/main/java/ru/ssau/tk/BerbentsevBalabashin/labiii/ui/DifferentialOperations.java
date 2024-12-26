@@ -26,10 +26,10 @@ public class DifferentialOperations extends JDialog {
     JFrame owner;
 
     public DifferentialOperations(JFrame frame, TabulatedDifferentialOperator operationService) {
-        super(frame, "Операции с табулированными функциями", true);
+        super(frame, "Operations with tabulated functions", true);
         owner = frame;
         this.operationService = operationService;
-        setSize(800, 600);
+        setSize(900, 720);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -53,7 +53,7 @@ public class DifferentialOperations extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(250, 180, 105), 0, getHeight(), new Color(250, 180, 105));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -61,11 +61,11 @@ public class DifferentialOperations extends JDialog {
         };
         operationPanel.setLayout(new GridLayout(1, 1));
 
-        JButton differentiateButton = createStyledButton("Дифференцировать");
+        JButton differentiateButton = createStyledButton("Differentiate");
         differentiateButton.addActionListener((param) -> performOperation());
         operationPanel.add(differentiateButton);
 
-        JPanel functionsPanel = new JPanel(new GridLayout(1, 2)){
+        JPanel functionsPanel = new JPanel(new GridLayout(2, 2)){
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -74,7 +74,7 @@ public class DifferentialOperations extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(250, 180, 105), 0, getHeight(), new Color(250, 180, 105));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -104,7 +104,7 @@ public class DifferentialOperations extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(250, 180, 105), 0, getHeight(), new Color(250, 180, 105));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -116,20 +116,20 @@ public class DifferentialOperations extends JDialog {
 
         gbc.gridx = 0;
         gbc.gridy = 0;
-        buttonPanel.add(createStyledButton("Создать", createListener), gbc);
+        buttonPanel.add(createStyledButton("Create", createListener), gbc);
 
         gbc.gridx = 1;
-        buttonPanel.add(createStyledButton("Загрузить", loadListener), gbc);
+        buttonPanel.add(createStyledButton("Download", loadListener), gbc);
 
         gbc.gridx = 2;
-        buttonPanel.add(createStyledButton("Cохранить", saveListener), gbc);
+        buttonPanel.add(createStyledButton("Save", saveListener), gbc);
 
         panel.add(buttonPanel, BorderLayout.SOUTH);
         return panel;
     }
 
     private JButton createStyledButton(String text) {
-        JButton button = new RoundedButton(text, new Color(81, 111, 239));
+        JButton button = new RoundedButton(text, new Color(255, 255,255));
         button.setFocusPainted(false);
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         return button;
@@ -151,19 +151,19 @@ public class DifferentialOperations extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199));
+                GradientPaint gp = new GradientPaint(200, 0, new Color(209, 96, 15), 0, getHeight(), new Color(209, 96, 15));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         };
         panel.setLayout(new BorderLayout());
-        panel.setBorder(BorderFactory.createTitledBorder( "Результат"));
+        panel.setBorder(BorderFactory.createTitledBorder( "Result"));
 
         JScrollPane scrollPane = new JScrollPane(resultFunctionTable);
         panel.add(scrollPane, BorderLayout.CENTER);
 
-        JButton saveButton = createStyledButton("Сохранить", (param)-> saveFunction(2));
+        JButton saveButton = createStyledButton("Save", (param)-> saveFunction(2));
         panel.add(saveButton, BorderLayout.SOUTH);
 
         return panel;
@@ -187,7 +187,7 @@ public class DifferentialOperations extends JDialog {
                         double newValue = Double.parseDouble(tableModel.getValueAt(row, column).toString());
                         function.setY(row, newValue);
                     } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(table, "Введите корректное числовое значение", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(table, "Enter a valid numeric value", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }
@@ -199,14 +199,14 @@ public class DifferentialOperations extends JDialog {
 
     private void performOperation() {
         if (function == null) {
-            JOptionPane.showMessageDialog(this, "Функция должна быть создана или загружена", "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "The function must be created or loaded", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         try {
             resultFunction = operationService.derive(function);
             updateTableWithFunction(resultTableModel, resultFunction);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ошибка при выполнении операции: " + e.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error during operation: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -230,7 +230,7 @@ public class DifferentialOperations extends JDialog {
             function = createdFunction;
             updateTableWithFunction(firstTableModel, function);
         } else {
-            JOptionPane.showMessageDialog(this, "Функция не была создана", "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Function not created", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -244,7 +244,8 @@ public class DifferentialOperations extends JDialog {
                 function = FunctionsIO.deserialize(bufferedInputStream);
                 updateTableWithFunction(firstTableModel, function);
             } catch (IOException | ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(this, "Неподдерживаемый формат. Ошибка загрузки функции: " + e.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "\n" +
+                        "Unsupported format. Error loading function: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -259,7 +260,7 @@ public class DifferentialOperations extends JDialog {
                 TabulatedFunction function = (operand == 1) ? this.function : resultFunction;
                 FunctionsIO.serialize(bufferedOutputStream, function);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(this, "Ошибка сохранения функции: " + e.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error saving function: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -277,8 +278,8 @@ public class DifferentialOperations extends JDialog {
             setContentAreaFilled(false);
             setFocusPainted(false);
             setForeground(textColor);
-            setBackground(new Color(238, 226, 220));
-            setFont(new Font("MerriWeather", Font.PLAIN, 16));
+            setBackground(new Color(209, 96, 15));
+            setFont(new Font("Arial", Font.PLAIN, 20));
         }
     }
 }

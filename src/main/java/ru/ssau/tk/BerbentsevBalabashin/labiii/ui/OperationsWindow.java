@@ -29,10 +29,10 @@ public class OperationsWindow extends JDialog {
     JFrame owner;
 
     public OperationsWindow(JFrame frame, TabulatedFunctionOperationService operationService) {
-        super(frame, "Операции с табулированными функциями", true);
+        super(frame, "Operations with tabulated functions", true);
         owner = frame;
         this.operationService = operationService;
-        setSize(900, 600);
+        setSize(1280, 720);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -44,9 +44,9 @@ public class OperationsWindow extends JDialog {
         JTable secondFunctionTable = createTable(secondTableModel, true, operand_2);
         resultFunctionTable = createTable(resultTableModel, false, -1);
 
-        JPanel firstFunctionPanel = createFunctionPanel("Функция 1", firstFunctionTable,
+        JPanel firstFunctionPanel = createFunctionPanel("Function 1", firstFunctionTable,
                 (param)-> createFunction(1), (param) -> loadFunction(1), (param) -> saveFunction(1));
-        JPanel secondFunctionPanel = createFunctionPanel("Функция 2", secondFunctionTable,
+        JPanel secondFunctionPanel = createFunctionPanel("Function 2", secondFunctionTable,
                 (param) -> createFunction(2), (param) -> loadFunction(2), (param)-> saveFunction(2));
         JPanel resultFunctionPanel = createResultPanel();
 
@@ -59,18 +59,17 @@ public class OperationsWindow extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
-
+                GradientPaint gp = new GradientPaint(200, 0, new Color(209, 96, 15), 0, getHeight(), new Color(209, 96, 15));
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         };
 
         panel.setLayout(new GridLayout(4, 1));
-        JButton sumButton = new RoundedButton("Сложение", new Color(81, 111, 239));
-        JButton subtractButton = new RoundedButton("Вычитание", new Color(81, 111, 239));
-        JButton multiplyButton = new RoundedButton("Умножение", new Color(81, 111, 239));
-        JButton divideButton = new RoundedButton("Деление", new Color(81, 111, 239));
+        JButton sumButton = new RoundedButton("Addition", new Color(247, 177, 126));
+        JButton subtractButton = new RoundedButton("Substraction", new Color(247, 177, 126));
+        JButton multiplyButton = new RoundedButton("Multiplication", new Color(247, 177, 126));
+        JButton divideButton = new RoundedButton("Division", new Color(247, 177, 126));
         sumButton.addActionListener((param) -> performOperation(1));
         subtractButton.addActionListener((param)-> performOperation(2));
         multiplyButton.addActionListener((param)-> performOperation(3));
@@ -80,7 +79,7 @@ public class OperationsWindow extends JDialog {
         panel.add(multiplyButton);
         panel.add(divideButton);
 
-        JPanel functionsPanel = new JPanel(new GridLayout(1, 3));
+        JPanel functionsPanel = new JPanel(new GridLayout(3, 3));
         functionsPanel.add(firstFunctionPanel);
         functionsPanel.add(secondFunctionPanel);
         functionsPanel.add(resultFunctionPanel);
@@ -99,7 +98,7 @@ public class OperationsWindow extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199));
+                GradientPaint gp = new GradientPaint(200, 0, new Color(209, 96, 15), 0, getHeight(), new Color(209, 96, 15));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -118,15 +117,15 @@ public class OperationsWindow extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199));
+                GradientPaint gp = new GradientPaint(200, 0, new Color(247, 177, 126), 0, getHeight(), new Color(247, 177, 126));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         };
-        JButton createButton = new RoundedButton("Создать", new Color(81, 111, 239));
-        JButton loadButton = new RoundedButton("Загрузить", new Color(81, 111, 239));
-        JButton saveButton = new RoundedButton("Сохранить", new Color(81, 111, 239));
+        JButton createButton = new RoundedButton("Create", new Color(209, 96, 15));
+        JButton loadButton = new RoundedButton("Download", new Color(209, 96, 15));
+        JButton saveButton = new RoundedButton("Save", new Color(209, 96, 15));
         createButton.addActionListener(createListener);
         loadButton.addActionListener(loadListener);
         saveButton.addActionListener(saveListener);
@@ -147,17 +146,17 @@ public class OperationsWindow extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199));
+                GradientPaint gp = new GradientPaint(200, 0, new Color(247, 177, 126), 0, getHeight(), new Color(247, 177, 126));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         };
         panel.setLayout(new BorderLayout());
-        panel.setBorder(BorderFactory.createTitledBorder("Результат"));
+        panel.setBorder(BorderFactory.createTitledBorder("Result"));
         JScrollPane scrollPane = new JScrollPane(resultFunctionTable);
         panel.add(scrollPane, BorderLayout.CENTER);
-        JButton saveButton = new RoundedButton("Сохранить", new Color(81, 111, 239));
+        JButton saveButton = new RoundedButton("Save", new Color(209, 96, 15));
         saveButton.addActionListener((param) -> saveFunction(3));
         panel.add(saveButton, BorderLayout.SOUTH);
         return panel;
@@ -181,7 +180,7 @@ public class OperationsWindow extends JDialog {
                             double newValue = Double.parseDouble(tableModel.getValueAt(row, column).toString());
                             firstFunction.setY(row, newValue);
                         } catch (NumberFormatException ex) {
-                            JOptionPane.showMessageDialog(table, "Введите корректное числовое значение", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(table, "Enter a valid numeric value", "Error", JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 }
@@ -195,7 +194,7 @@ public class OperationsWindow extends JDialog {
                             double newValue = Double.parseDouble(tableModel.getValueAt(row, column).toString());
                             secondFunction.setY(row, newValue); // Синхронизация с функцией
                         } catch (NumberFormatException ex) {
-                            JOptionPane.showMessageDialog(table, "Введите корректное числовое значение", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(table, "Enter a valid numeric value", "Error", JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 }
@@ -206,7 +205,7 @@ public class OperationsWindow extends JDialog {
 
     private void performOperation(int operation) {
         if (firstFunction == null || secondFunction == null) {
-            JOptionPane.showMessageDialog(this, "Обе функции должны быть созданы или загружены", "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Both functions must be created or loaded", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         try {
@@ -226,7 +225,7 @@ public class OperationsWindow extends JDialog {
             }
             updateTableWithFunction(resultTableModel, resultFunction);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ошибка при выполнении операции: " + e.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error during operation: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -255,7 +254,7 @@ public class OperationsWindow extends JDialog {
                 updateTableWithFunction(secondTableModel, secondFunction);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Функция не была создана", "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "The function was not created", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -275,7 +274,7 @@ public class OperationsWindow extends JDialog {
                     updateTableWithFunction(secondTableModel, secondFunction);
                 }
             } catch (IOException | ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(this, "Ошибка загрузки функции: " + e.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error loading function: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -290,7 +289,7 @@ public class OperationsWindow extends JDialog {
                  TabulatedFunction function = (operand == 1) ? firstFunction : (operand == 2) ? secondFunction : resultFunction;
                 FunctionsIO.serialize(bufferedOutputStream, function);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(this, "Ошибка сохранения функции: " + e.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error saving function: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -308,8 +307,8 @@ public class OperationsWindow extends JDialog {
             setContentAreaFilled(false);
             setFocusPainted(false);
             setForeground(textColor);
-            setBackground(new Color(209, 230, 199));
-            setFont(new Font("MerriWeather", Font.PLAIN, 16));
+            setBackground(new Color(247, 177, 126));
+            setFont(new Font("Arial", Font.PLAIN, 24));
         }
     }
 }

@@ -6,6 +6,7 @@ import javax.swing.text.DocumentFilter;
 
 public class DoubleNumeric extends DocumentFilter {
     private static final String NUMBER_REGEX = "[0-9.-]*";
+
     @Override
     public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
         if (isNumeric(string)) {

@@ -10,16 +10,17 @@ public class HandlerExceptions {
         try {
             pointCount = Integer.parseInt(input);
             if (pointCount <= 1) {
-                throw new IllegalArgumentException("Количество точек должно быть больше 1!");
+                throw new IllegalArgumentException("\n" +
+                        "The number of points should be more 1!");
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Введите корректное значение!");
+            throw new IllegalArgumentException("Please enter a valid value!");
         }
 
         return pointCount;
     }
 
     public static void showErrorDialog(String message) {
-        JOptionPane.showMessageDialog(null, message, "Ошибка", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
 }

@@ -30,8 +30,9 @@ public class MathFunctionController extends JDialog {
         super(frame, true);
         this.factory = new LinkedListTabulatedFunctionFactory();
         this.functionMap = createFunctionMap();
-        frame.setTitle("Создать табулированную функцию");
-        setSize(600, 400);
+        frame.setTitle("\n" +
+                "Create a Tabulated Function");
+        setSize(850, 480);
         setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
@@ -45,22 +46,22 @@ public class MathFunctionController extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(247, 177, 126), 0, getHeight(), new Color(247, 177, 126));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         };
 
-        JLabel functionLabel = new JLabel("Выберите функцию:");
+        JLabel functionLabel = new JLabel("Select function:");
         functionComboBox = new JComboBox<>(functionMap.keySet().toArray(new String[0]));
-        JLabel leftBoundLabel = new JLabel("Левая граница:");
+        JLabel leftBoundLabel = new JLabel("Left border:");
         leftBoundField = new JTextField();
         ((AbstractDocument) leftBoundField.getDocument()).setDocumentFilter(new DoubleNumeric());
-        JLabel rightBoundLabel = new JLabel("Правая граница:");
+        JLabel rightBoundLabel = new JLabel("Right border:");
         rightBoundField = new JTextField();
         ((AbstractDocument) rightBoundField.getDocument()).setDocumentFilter(new DoubleNumeric());
-        JLabel pointsCountLabel = new JLabel("Количество точек:");
+        JLabel pointsCountLabel = new JLabel("Number of points:");
         pointsCountField = new JTextField();
         ((AbstractDocument) pointsCountField.getDocument()).setDocumentFilter(new IntNumeric());
 
@@ -73,7 +74,7 @@ public class MathFunctionController extends JDialog {
         panel.add(pointsCountLabel);
         panel.add(pointsCountField);
 
-        JButton createButton = new RoundedButton("создать", new Color(81, 111, 239));
+        JButton createButton = new RoundedButton("Create", new Color(140, 88, 24));
         createButton.addActionListener(new CreateFunctionListener());
 
         add(panel, BorderLayout.CENTER);
@@ -83,13 +84,13 @@ public class MathFunctionController extends JDialog {
 
     private Map<String, MathFunction> createFunctionMap() {
         Map<String, MathFunction> map = new TreeMap<>();
-        map.put("Квадратичная функция", new SqrFunction());
-        map.put("Тождественная функция", new IdentityFunction());
-        map.put("Функция константы 0", new ZeroFunction());
-        map.put("Функция константы 1", new UnitFunction());
-        map.put("Синус", new SinFunction());
-        map.put("Косинус", new CosFunction());
-        map.put("Тангенс", new TgFunction());
+        map.put("Quadratic function", new SqrFunction());
+        map.put("Identity function", new IdentityFunction());
+        map.put("Constant function 0", new ZeroFunction());
+        map.put("Constant function 1", new UnitFunction());
+        map.put("Sin", new SinFunction());
+        map.put("Cos", new CosFunction());
+        map.put("Tg", new TgFunction());
         return map;
     }
     public static class RoundedButton extends JButton {
@@ -98,8 +99,8 @@ public class MathFunctionController extends JDialog {
             setContentAreaFilled(false);
             setFocusPainted(false);
             setForeground(textColor);
-            setBackground(new Color(238, 226, 220));
-            setFont(new Font("MerriWeather", Font.PLAIN, 20));
+            setBackground(new Color(140, 88, 24));
+            setFont(new Font("Arial", Font.PLAIN, 24));
         }
     }
     private class CreateFunctionListener implements ActionListener {
@@ -114,10 +115,10 @@ public class MathFunctionController extends JDialog {
                 int pointsCount = Integer.parseInt(pointsCountField.getText());
 
                 if (leftX >= rightX) {
-                    throw new IllegalArgumentException("Левая граница должна быть меньше правой.");
+                    throw new IllegalArgumentException("The left border must be smaller than the right.");
                 }
                 if (pointsCount < 2) {
-                    throw new IllegalArgumentException("Количество точек должно быть больше 1.");
+                    throw new IllegalArgumentException("The number of points must be greater than 1.");
                 }
                 double[] xValues = new double[pointsCount];
                 double[] yValues = new double[pointsCount];
@@ -128,10 +129,10 @@ public class MathFunctionController extends JDialog {
                 }
 
                 tabulatedFunction = factory.create(xValues, yValues);
-                JOptionPane.showMessageDialog(MathFunctionController.this, "Функция создана!");
+                JOptionPane.showMessageDialog(MathFunctionController.this, "Function created");
                 dispose();
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(MathFunctionController.this, "Некорректный ввод!", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(MathFunctionController.this, "Invalid input!", "Error", JOptionPane.ERROR_MESSAGE);
             } catch (IllegalArgumentException ex) {
                 JOptionPane.showMessageDialog(MathFunctionController.this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }

@@ -18,8 +18,8 @@ public class TableController extends JDialog {
     public TableController(JFrame owner, TabulatedFunctionFactory tabulatedFunctionFactory) {
         super(owner, true);
         factory = new LinkedListTabulatedFunctionFactory();
-        setTitle("Создать Табулированную функцию");
-        setSize(600, 400);
+        setTitle("Create Tabulated Function");
+        setSize(800, 480);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -33,7 +33,7 @@ public class TableController extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(247, 177, 126), 0, getHeight(), new Color(247, 177, 126));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -42,9 +42,9 @@ public class TableController extends JDialog {
 
         setLayout(new BorderLayout());
         gradientPanel.setLayout(new FlowLayout());
-        JLabel pointCountLabel = new JLabel("Количество точек:");
+        JLabel pointCountLabel = new JLabel("Number of points:");
         pointCount = new JTextField(10);
-        JButton createTableButton = new RoundedButton("добавить", new Color(81, 111, 239));
+        JButton createTableButton = new RoundedButton("Add", new Color(209, 96, 15));
         gradientPanel.add(pointCountLabel);
         gradientPanel.add(pointCount);
         gradientPanel.add(createTableButton);
@@ -56,7 +56,7 @@ public class TableController extends JDialog {
         tablePanel.setLayout(new BorderLayout());
         tablePanel.add(scrollPane, BorderLayout.CENTER);
 
-        JButton createFunctionButton = new RoundedButton("Создать", new Color(81, 111, 239));
+        JButton createFunctionButton = new RoundedButton("Create", new Color(209, 96, 15));
         JPanel buttonPanel = new JPanel(){
             @Override
             protected void paintComponent(Graphics g) {
@@ -66,7 +66,7 @@ public class TableController extends JDialog {
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
 
-                GradientPaint gp = new GradientPaint(200, 0, new Color(255, 230, 55), 0, getHeight(), new Color(166, 255, 199)); // Нижняя часть фона (более светлый серый)
+                GradientPaint gp = new GradientPaint(200, 0, new Color(247, 177, 126), 0, getHeight(), new Color(247, 177, 126));
 
                 g2d.setPaint(gp);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
@@ -115,16 +115,16 @@ public class TableController extends JDialog {
 
             for (int i = 1; i < rowCount; i++) {
                 if (xValues[i] <= xValues[i - 1]) {
-                    JOptionPane.showMessageDialog(this, "X должен увеличиваться!", "Ошибка!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "X should increase!", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
 
             tabulatedFunction = factory.create(xValues, yValues);
-            JOptionPane.showMessageDialog(this, "Функция создана!", "Победа!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Function created!", "Correct", JOptionPane.INFORMATION_MESSAGE);
             dispose();
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Введите корректное значение точек!", "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Enter the correct point value!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -134,8 +134,8 @@ public class TableController extends JDialog {
             setContentAreaFilled(false);
             setFocusPainted(false);
             setForeground(textColor);
-            setBackground(new Color(238, 226, 220));
-            setFont(new Font("MerriWeather", Font.PLAIN, 16));
+            setBackground(new Color(209, 96, 15));
+            setFont(new Font("Arial", Font.PLAIN, 24));
         }
     }
 
